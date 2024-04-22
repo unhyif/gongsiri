@@ -15,8 +15,8 @@ const getHouses = baseUrl => {
     const cells = row.querySelectorAll('td');
     const areaCell = cells[2];
     const nameCell = cells[3];
-    const houseId = Number(nameCell.querySelector('a').href.match(/\d+/)[0]);
 
+    const houseId = Number(nameCell.querySelector('a').href.match(/\d+/)[0]);
     const house = {
       id: houseId,
       area: areaCell.innerText.trim(),
@@ -27,6 +27,21 @@ const getHouses = baseUrl => {
   });
 
   return houses;
+};
+
+const getHouseUrl = () => {
+  function isValidURL(url) {
+    try {
+      new URL(url);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  const url = document.body.querySelector('#detail1 a').innerText.trim();
+  const houseUrl = isValidURL(url) ? url : null;
+  return houseUrl;
 };
 
 const goNext = async (page, nextPageIndex) => {
@@ -44,10 +59,10 @@ const goNext = async (page, nextPageIndex) => {
 
 (async () => {
   const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto(BASE_URL, { waitUntil: 'networkidle0' });
+  const listPage = await browser.newPage();
+  await listPage.goto(BASE_URL, { waitUntil: 'networkidle0' });
 
-  const totalPageIndex = await page.evaluate(getTotalPageIndex);
+  const totalPageIndex = await listPage.evaluate(getTotalPageIndex);
   let result = [];
 
   for (
@@ -55,15 +70,21 @@ const goNext = async (page, nextPageIndex) => {
     currentPageIndex <= totalPageIndex;
     currentPageIndex++
   ) {
-    const additionalResult = await page.evaluate(getHouses, BASE_URL);
+    const houses = await listPage.evaluate(getHouses, BASE_URL);
+    for (const house of houses) {
+      const viewPage = await browser.newPage();
+      await viewPage.goto(house.shUrl, { waitUntil: 'networkidle0' });
+      house.url = await viewPage.evaluate(getHouseUrl);
+      await viewPage.close();
+    }
 
-    result = result.concat(additionalResult);
+    result = result.concat(houses);
 
     if (currentPageIndex === totalPageIndex) break;
-    await goNext(page, currentPageIndex + 1);
+    await goNext(listPage, currentPageIndex + 1);
   }
 
-  await browser.close();
-
   fs.writeFileSync('./src/data/houseList.json', JSON.stringify(result));
+
+  await browser.close();
 })();
