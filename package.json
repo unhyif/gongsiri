@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "scrap-house-list": "node ./src/scripts/houseListScrapper.mjs"
+    "house-list": "node ./src/scripts/houseListScrapper.mjs"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",

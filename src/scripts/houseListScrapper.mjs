@@ -1,22 +1,27 @@
 import fs from 'fs';
 import puppeteer from 'puppeteer';
 
-const HOUSE_LIST_ENTRY_URL =
+const BASE_URL =
   'https://soco.seoul.go.kr/youth/pgm/home/yohome/list.do?menuNo=400002';
 
-const getNumOfTotalPages = () =>
+const getTotalPageIndex = () =>
   Number(document.body.querySelector('#totPage').innerText.split('/')[1]);
 
-const getHouses = () => {
+const getHouses = baseUrl => {
   const houses = [];
 
   const rows = document.body.querySelectorAll('#cohomeForm tr');
   rows.forEach(row => {
     const cells = row.querySelectorAll('td');
+    const areaCell = cells[2];
+    const nameCell = cells[3];
+    const houseId = Number(nameCell.querySelector('a').href.match(/\d+/)[0]);
+
     const house = {
-      id: Number(cells[0].innerText.trim()),
-      area: cells[2].innerText.trim(),
-      name: cells[3].innerText.trim(),
+      id: houseId,
+      area: areaCell.innerText.trim(),
+      name: nameCell.innerText.trim(),
+      shUrl: `${baseUrl.replace('/list', '/view')}&homeCode=${houseId}`,
     };
     houses.push(house);
   });
@@ -40,17 +45,22 @@ const goNext = async (page, nextPageIndex) => {
 (async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto(HOUSE_LIST_ENTRY_URL, { waitUntil: 'networkidle0' });
+  await page.goto(BASE_URL, { waitUntil: 'networkidle0' });
 
-  const numOfTotalPages = await page.evaluate(getNumOfTotalPages);
+  const totalPageIndex = await page.evaluate(getTotalPageIndex);
   let result = [];
 
-  for (let currentPage = 1; currentPage <= numOfTotalPages; currentPage++) {
-    const additionalResult = await page.evaluate(getHouses);
+  for (
+    let currentPageIndex = 1;
+    currentPageIndex <= totalPageIndex;
+    currentPageIndex++
+  ) {
+    const additionalResult = await page.evaluate(getHouses, BASE_URL);
+
     result = result.concat(additionalResult);
 
-    if (currentPage === numOfTotalPages) break;
-    await goNext(page, currentPage + 1);
+    if (currentPageIndex === totalPageIndex) break;
+    await goNext(page, currentPageIndex + 1);
   }
 
   await browser.close();

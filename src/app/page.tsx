@@ -18,11 +18,11 @@ const prompt = ChatPromptTemplate.fromMessages([
 const chain = prompt.pipe(model).pipe(parser);
 
 export default async function Home() {
-  const HTML = await scrapMainContent(
+  const html = await scrapMainContent(
     'https://bx201seoul.modoo.at/?link=3gs5oxwu'
   );
   const res = await chain.invoke({
-    input: HTML,
+    input: html,
   });
   return <p>{res}</p>;
 }

@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer';
-import { reduceTokensFromHTML } from './string';
+import { reduceTokensFromHtml } from './string';
 
 export const scrapStaticLinks = async (url: string) => {
   const browser = await puppeteer.launch();
@@ -10,7 +10,7 @@ export const scrapStaticLinks = async (url: string) => {
     const links = document.body.querySelectorAll('a');
     return Array.from(links).map(link => ({
       href: link.href,
-      text: link.innerText,
+      text: link.textContent,
     }));
   });
 
@@ -31,7 +31,7 @@ export const scrapMainContent = async (url: string) => {
       elements.forEach(element => element.remove());
     });
 
-    return reduceTokensFromHTML(document.body.innerHTML);
+    return reduceTokensFromHtml(document.body.innerHTML);
   });
 
   await browser.close();
