@@ -1,3 +1,4 @@
+import fs from 'fs';
 import puppeteer from 'puppeteer';
 
 const HOUSE_LIST_ENTRY_URL =
@@ -54,5 +55,5 @@ const goNext = async (page, nextPageIndex) => {
 
   await browser.close();
 
-  return result;
+  fs.writeFileSync('./src/data/houseList.json', JSON.stringify(result));
 })();
