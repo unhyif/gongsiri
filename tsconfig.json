@@ -25,7 +25,7 @@
       "@llm/*": ["./llm/*"],
       "@scripts/*": ["./scripts/*"],
       "@styles/*": ["./styles/*"],
-      "@types/*": ["./types/*"],
+      "@/types/*": ["./types/*"],
       "@utils/*": ["./utils/*"],
       "~/*": ["./*"]
     }
