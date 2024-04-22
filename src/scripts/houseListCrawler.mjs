@@ -63,6 +63,8 @@ const goNext = async (page, nextPageIndex) => {
   await listPage.goto(BASE_URL, { waitUntil: 'networkidle0' });
 
   const totalPageIndex = await listPage.evaluate(getTotalPageIndex);
+
+  const viewPage = await browser.newPage();
   let result = [];
 
   for (
@@ -72,15 +74,14 @@ const goNext = async (page, nextPageIndex) => {
   ) {
     const houses = await listPage.evaluate(getHouses, BASE_URL);
     for (const house of houses) {
-      const viewPage = await browser.newPage();
-      await viewPage.goto(house.shUrl, { waitUntil: 'networkidle0' });
+      await viewPage.goto(house.shUrl, { waitUntil: 'networkidle2' });
       house.url = await viewPage.evaluate(getHouseUrl);
-      await viewPage.close();
     }
 
     result = result.concat(houses);
 
     if (currentPageIndex === totalPageIndex) break;
+    await listPage.bringToFront();
     await goNext(listPage, currentPageIndex + 1);
   }
 
