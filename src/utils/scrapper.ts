@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer';
-import { removeCommentsFromHTML } from './string';
+import { reduceTokensFromHTML } from './string';
 
 export const scrapStaticLinks = async (url: string) => {
   const browser = await puppeteer.launch();
@@ -31,7 +31,7 @@ export const scrapMainContent = async (url: string) => {
       elements.forEach(element => element.remove());
     });
 
-    return removeCommentsFromHTML(document.body.innerHTML);
+    return reduceTokensFromHTML(document.body.innerHTML);
   });
 
   await browser.close();

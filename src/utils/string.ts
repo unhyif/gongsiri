@@ -1,3 +1,3 @@
-export const removeCommentsFromHTML = (html: string) => {
-  return html.replace(/<!--[\s\S]*?-->/g, '');
+export const reduceTokensFromHTML = (html: string) => {
+  return html.replace(/\s{2,}/g, ' ').replace(/<!--[\s\S]*?-->/g, '');
 };
