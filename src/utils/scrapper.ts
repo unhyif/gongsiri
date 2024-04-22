@@ -1,8 +1,5 @@
 import puppeteer from 'puppeteer';
-
-export const removeComments = (html: string) => {
-  return html.replace(/<!--[\s\S]*?-->/g, '');
-};
+import { removeCommentsFromHTML } from './string';
 
 export const scrapStaticLinks = async (url: string) => {
   const browser = await puppeteer.launch();
@@ -34,7 +31,7 @@ export const scrapMainContent = async (url: string) => {
       elements.forEach(element => element.remove());
     });
 
-    return removeComments(document.body.innerHTML);
+    return removeCommentsFromHTML(document.body.innerHTML);
   });
 
   await browser.close();

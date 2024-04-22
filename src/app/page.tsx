@@ -3,7 +3,7 @@ import { ChatOllama } from '@langchain/community/chat_models/ollama';
 import { ChatPromptTemplate } from '@langchain/core/prompts';
 import { StringOutputParser } from '@langchain/core/output_parsers';
 import { recruitmentSystemPrompt } from '@llm/prompts';
-import { scrapMainContent } from '@utils/index';
+import { scrapMainContent } from '@utils/scrapper';
 
 const model = new ChatOllama({
   model: 'llama3',
