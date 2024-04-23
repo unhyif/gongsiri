@@ -35,32 +35,26 @@ const getHouseAnnouncementUrl = async input => {
   return res;
 };
 
-export const crawlHouseAnnouncementUrls = () => {
-  fs.readFile('./src/data/houseList.json', async (e, data) => {
-    if (e) return;
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    const houses = JSON.parse(data);
+export const crawlHouseAnnouncementUrls = async () => {
+  const houses = await JSON.parse(
+    fs.promises.readFile('./src/data/houseList.json', 'utf8')
+  );
 
-    for (const house of houses) {
-      try {
-        await page.goto(house.url);
-        const urls = await page.evaluate(scrapStaticUrls);
-        house.announcementUrl = await getHouseAnnouncementUrl(urls);
-      } catch (e) {
-        console.log(house, e);
-        house.announcementUrl = null;
-      }
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+
+  for (const house of houses) {
+    try {
+      await page.goto(house.url);
+      const urls = await page.evaluate(scrapStaticUrls);
+      house.announcementUrl = await getHouseAnnouncementUrl(urls);
+    } catch (e) {
+      console.log(house, e);
+      house.announcementUrl = null;
     }
+  }
 
-    await browser.close();
+  await browser.close();
 
-    fs.writeFile(
-      './src/data/houseList.json',
-      JSON.stringify(houses),
-      async e => {
-        if (e) return;
-      }
-    );
-  });
+  fs.writeFile('./src/data/houseList.json', JSON.stringify(houses));
 };

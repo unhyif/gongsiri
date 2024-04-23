@@ -1,5 +1,5 @@
 import { crawlHouseAnnouncementUrls } from './houseAnnouncementUrlCrawler.mjs';
-import fs from 'fs';
+import fs from 'fs/promises';
 import puppeteer from 'puppeteer';
 
 const BASE_URL =
@@ -87,9 +87,6 @@ const goNext = async (page, nextPageIndex) => {
   }
 
   await browser.close();
-
-  fs.writeFile('./src/data/houseList.json', JSON.stringify(result), e => {
-    if (e) return;
-    crawlHouseAnnouncementUrls();
-  });
+  await fs.writeFile('./src/data/houseList.json', JSON.stringify(result));
+  await crawlHouseAnnouncementUrls();
 })();
