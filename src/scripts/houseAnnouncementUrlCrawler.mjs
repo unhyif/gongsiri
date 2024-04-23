@@ -35,7 +35,7 @@ const getHouseAnnouncementUrl = async input => {
   return res;
 };
 
-export const getHouseAnnouncementUrls = () => {
+export const crawlHouseAnnouncementUrls = () => {
   fs.readFile('./src/data/houseList.json', async (e, data) => {
     if (e) return;
     const browser = await puppeteer.launch();
