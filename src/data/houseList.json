@@ -1,12 +1,5 @@
 [
   {
-    "id": 20000359,
-    "area": "종로구",
-    "name": "동묘앞역 동대문영하우스",
-    "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000359",
-    "url": null
-  },
-  {
     "id": 20000525,
     "area": "은평구",
     "name": "연신내역 루체스테이션",
@@ -19,6 +12,13 @@
     "name": "연신내역 THE STUDIO 163",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000540",
     "url": "http://www.thestudio163.co.kr"
+  },
+  {
+    "id": 20000359,
+    "area": "종로구",
+    "name": "동묘앞역 동대문영하우스",
+    "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000359",
+    "url": null
   },
   {
     "id": 20000537,

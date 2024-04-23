@@ -1,13 +1,14 @@
 import fs from 'fs';
+import { getHouseAnnouncementUrls } from './houseAnnouncementUrlCrawler.mjs';
 import puppeteer from 'puppeteer';
 
 const BASE_URL =
   'https://soco.seoul.go.kr/youth/pgm/home/yohome/list.do?menuNo=400002';
 
-const getTotalPageIndex = () =>
+const scrapTotalPageIndex = () =>
   Number(document.body.querySelector('#totPage').innerText.split('/')[1]);
 
-const getHouses = baseUrl => {
+const scrapHouses = baseUrl => {
   const houses = [];
 
   const rows = document.body.querySelectorAll('#cohomeForm tr');
@@ -21,7 +22,7 @@ const getHouses = baseUrl => {
       id: houseId,
       area: areaCell.innerText.trim(),
       name: nameCell.innerText.trim(),
-      shUrl: `${baseUrl.replace('/list', '/view')}&homeCode=${houseId}`,
+      shUrl: baseUrl.replace('/list', '/view') + `&homeCode=${houseId}`,
     };
     houses.push(house);
   });
@@ -29,7 +30,7 @@ const getHouses = baseUrl => {
   return houses;
 };
 
-const getHouseUrl = () => {
+const scrapHouseUrl = () => {
   function isValidURL(url) {
     try {
       new URL(url);
@@ -62,7 +63,7 @@ const goNext = async (page, nextPageIndex) => {
   const listPage = await browser.newPage();
   await listPage.goto(BASE_URL, { waitUntil: 'networkidle0' });
 
-  const totalPageIndex = await listPage.evaluate(getTotalPageIndex);
+  const totalPageIndex = await listPage.evaluate(scrapTotalPageIndex);
 
   const viewPage = await browser.newPage();
   let result = [];
@@ -72,10 +73,10 @@ const goNext = async (page, nextPageIndex) => {
     currentPageIndex <= totalPageIndex;
     currentPageIndex++
   ) {
-    const houses = await listPage.evaluate(getHouses, BASE_URL);
+    const houses = await listPage.evaluate(scrapHouses, BASE_URL);
     for (const house of houses) {
       await viewPage.goto(house.shUrl, { waitUntil: 'networkidle2' });
-      house.url = await viewPage.evaluate(getHouseUrl);
+      house.url = await viewPage.evaluate(scrapHouseUrl);
     }
 
     result = result.concat(houses);
@@ -85,7 +86,10 @@ const goNext = async (page, nextPageIndex) => {
     await goNext(listPage, currentPageIndex + 1);
   }
 
-  fs.writeFileSync('./src/data/houseList.json', JSON.stringify(result));
-
   await browser.close();
+
+  fs.writeFile('./src/data/houseList.json', JSON.stringify(result), async e => {
+    if (e) return;
+    getHouseAnnouncementUrls();
+  });
 })();
