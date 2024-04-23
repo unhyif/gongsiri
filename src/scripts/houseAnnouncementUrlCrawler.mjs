@@ -36,8 +36,8 @@ const getHouseAnnouncementUrl = async input => {
 };
 
 export const crawlHouseAnnouncementUrls = async () => {
-  const houses = await JSON.parse(
-    fs.promises.readFile('./src/data/houseList.json', 'utf8')
+  const houses = JSON.parse(
+    await fs.promises.readFile('./src/data/houseList.json', 'utf8')
   );
 
   const browser = await puppeteer.launch();
@@ -56,5 +56,5 @@ export const crawlHouseAnnouncementUrls = async () => {
 
   await browser.close();
 
-  fs.writeFile('./src/data/houseList.json', JSON.stringify(houses));
+  fs.writeFileSync('./src/data/houseList.json', JSON.stringify(houses));
 };
