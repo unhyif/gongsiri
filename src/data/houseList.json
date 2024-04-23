@@ -4,363 +4,415 @@
     "area": "은평구",
     "name": "연신내역 루체스테이션",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000525",
-    "url": "https://lucestation.com"
+    "url": "https://lucestation.com",
+    "announcementUrl": "https://lucestation.com/sub/sub05_01.php"
   },
   {
     "id": 20000540,
     "area": "은평구",
     "name": "연신내역 THE STUDIO 163",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000540",
-    "url": "http://www.thestudio163.co.kr"
+    "url": "http://www.thestudio163.co.kr",
+    "announcementUrl": "https://www.thestudio163.co.kr/sub/sub05_01.php"
   },
   {
     "id": 20000359,
     "area": "종로구",
     "name": "동묘앞역 동대문영하우스",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000359",
-    "url": null
+    "url": null,
+    "announcementUrl": null
   },
   {
     "id": 20000537,
     "area": "중랑구",
     "name": "상봉역 상봉동양엔파트",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000537",
-    "url": "https://sbnpart.co.kr/index.php"
+    "url": "https://sbnpart.co.kr/index.php",
+    "announcementUrl": "https://sbnpart.co.kr/center/notice.php"
   },
   {
     "id": 20000366,
     "area": "중랑구",
     "name": "상봉역 제이스타상봉",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000366",
-    "url": "https://jstar2030.modoo.at"
+    "url": "https://jstar2030.modoo.at",
+    "announcementUrl": "https://jstar2030.modoo.at/?link=26i11qts"
   },
   {
     "id": 20000373,
     "area": "은평구",
     "name": "구산역 구산주택",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000373",
-    "url": "https://duckyoung2016.com/"
+    "url": "https://duckyoung2016.com/",
+    "announcementUrl": "https://duckyoung2016.com/notice"
   },
   {
     "id": 20000531,
     "area": "동작구",
     "name": "노량진역 더써밋타워",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000531",
-    "url": "https://thesummittower.co.kr/"
+    "url": "https://thesummittower.co.kr/",
+    "announcementUrl": "https://thesummittower.co.kr/24"
   },
   {
     "id": 20000526,
     "area": "동작구",
     "name": "신대방삼거리역 골든노블레스",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000526",
-    "url": "https://www.db40314.kr/"
+    "url": "https://www.db40314.kr/",
+    "announcementUrl": "https://www.db40314.kr/29"
   },
   {
     "id": 20000529,
     "area": "송파구",
     "name": "문정역 마에스트로",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000529",
-    "url": "https://maestromunjeong.com"
+    "url": "https://maestromunjeong.com",
+    "announcementUrl": "https://maestromunjeong.com/sub.php?code=26"
   },
   {
     "id": 20000495,
     "area": "송파구",
     "name": "잠실새내역 잠실센트럴파크",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000495",
-    "url": "https://jamsilcentralpark.com/"
+    "url": "https://jamsilcentralpark.com/",
+    "announcementUrl": "https://jamsilcentralpark.com/notice1"
   },
   {
     "id": 20000358,
     "area": "성동구",
     "name": "장한평역 힐데스하임(U-삼진랜드)",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000358",
-    "url": null
+    "url": null,
+    "announcementUrl": null
   },
   {
     "id": 20000503,
     "area": "종로구",
     "name": "동묘앞역 청계로벤하임",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000503",
-    "url": "https://www.lovenheim.co.kr/"
+    "url": "https://www.lovenheim.co.kr/",
+    "announcementUrl": "https://www.lovenheim.co.kr/notice1"
   },
   {
     "id": 20000419,
     "area": "도봉구",
     "name": "쌍문역 인히어쌍문",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000419",
-    "url": "http://ghp.kr/"
+    "url": "http://ghp.kr/",
+    "announcementUrl": "https://ghp.kr/sub/news/news.asp"
   },
   {
     "id": 20000355,
     "area": "마포구",
     "name": "광흥창역 이랜드신촌청년주택",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000355",
-    "url": "http://elandhome.co.kr/index.php"
+    "url": "http://elandhome.co.kr/index.php",
+    "announcementUrl": "http://elandhome.co.kr/sub/sub04_03.php"
   },
   {
     "id": 20000513,
     "area": "중구",
     "name": "동대문역사문화공원역 166 tower",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000513",
-    "url": "https://166tower.modoo.at/"
+    "url": "https://166tower.modoo.at/",
+    "announcementUrl": "https://166tower.modoo.at/?link=5j8b3kfn"
   },
   {
     "id": 20000475,
     "area": "영등포구",
     "name": "영등포구청역 포레나 당산",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000475",
-    "url": "http://www.포레나당산.com"
+    "url": "http://www.포레나당산.com",
+    "announcementUrl": "https://www.xn--910b48b70glxklhy.com/notice.html"
   },
   {
     "id": 20000443,
     "area": "동대문구",
     "name": "회기역 하트리움",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000443",
-    "url": "https://www.doojin2030.co.kr/"
+    "url": "https://www.doojin2030.co.kr/",
+    "announcementUrl": "https://www.doojin2030.co.kr/sub.php?code=10"
   },
   {
     "id": 20000437,
     "area": "은평구",
     "name": "불광역 호반베르디움 스테이원",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000437",
-    "url": "http://호반베르디움스테이원.com"
+    "url": "http://호반베르디움스테이원.com",
+    "announcementUrl": "https://xn--2z1bz6f6tctpw4vlsgid92d895c2hl.com/notice.html"
   },
   {
     "id": 20000436,
     "area": "서대문구",
     "name": "가좌역 스타타워",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000436",
-    "url": "http://www.stkaja.co.kr/"
+    "url": "http://www.stkaja.co.kr/",
+    "announcementUrl": "http://www.stkaja.co.kr/bbs/board.php?bo_table=news"
   },
   {
     "id": 20000424,
     "area": "도봉구",
     "name": "솔밭공원역 에드가쌍문",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000424",
-    "url": "https://eadgarssangmun.modoo.at/"
+    "url": "https://eadgarssangmun.modoo.at/",
+    "announcementUrl": "https://eadgarssangmun.modoo.at/?link=qhovm1s8"
   },
   {
     "id": 20000421,
     "area": "광진구",
     "name": "군자역 리마크빌 군자",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000421",
-    "url": "https://remarkvillgunja.com/"
+    "url": "https://remarkvillgunja.com/",
+    "announcementUrl": "https://remarkvillgunja.com/sub/sub04_02.php"
   },
   {
     "id": 20000420,
     "area": "송파구",
     "name": "잠실새내역 잠실엘타워",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000420",
-    "url": null
+    "url": null,
+    "announcementUrl": null
   },
   {
     "id": 20000418,
     "area": "광진구",
     "name": "강변역 비바힐스 강변",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000418",
-    "url": "https://www.vivahillskb.co.kr/"
+    "url": "https://www.vivahillskb.co.kr/",
+    "announcementUrl": "https://www.vivahillskb.co.kr/bbs/board.php?bo_table=notice"
   },
   {
     "id": 20000417,
     "area": "노원구",
     "name": "태릉입구역 와이엔타워",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000417",
-    "url": "https://yntower.modoo.at/"
+    "url": "https://yntower.modoo.at/",
+    "announcementUrl": "https://yntower.modoo.at/?link=a88etaku"
   },
   {
     "id": 20000416,
     "area": "중랑구",
     "name": "먹골역 칼튼테라스",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000416",
-    "url": "https://carltonterrace.modoo.at"
+    "url": "https://carltonterrace.modoo.at",
+    "announcementUrl": "https://carltonterrace.modoo.at/?link=8pc68vsh"
   },
   {
     "id": 20000415,
     "area": "강서구",
     "name": "발산역 엘크루",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000415",
-    "url": "https://youngtower.modoo.at/"
+    "url": "https://youngtower.modoo.at/",
+    "announcementUrl": "- https://youngtower.modoo.at/?link=7o0iyd6d\n- https://youngtower.modoo.at/?link=7o0iyd6d"
   },
   {
     "id": 20000414,
     "area": "광진구",
     "name": "강변역 옥산그린타워",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000414",
-    "url": null
+    "url": null,
+    "announcementUrl": null
   },
   {
     "id": 20000413,
     "area": "영등포구",
     "name": "신도림역 도림브라보",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000413",
-    "url": "https://dorimbravo.modoo.at/"
+    "url": "https://dorimbravo.modoo.at/",
+    "announcementUrl": "https://dorimbravo.modoo.at/?link=286i2ogk"
   },
   {
     "id": 20000412,
     "area": "강서구",
     "name": "화곡역 포르투나 블루",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000412",
-    "url": "https://fortunablue.modoo.at"
+    "url": "https://fortunablue.modoo.at",
+    "announcementUrl": "https://fortunablue.modoo.at/?link=dcn8otgl"
   },
   {
     "id": 20000406,
     "area": "용산구",
     "name": "남영역 용산 원효 루미니",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000406",
-    "url": "https://www.elyes.co.kr"
+    "url": "https://www.elyes.co.kr",
+    "announcementUrl": null
   },
   {
     "id": 20000386,
     "area": "관악구",
     "name": "서울대입구역 BX201",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000386",
-    "url": null
+    "url": null,
+    "announcementUrl": null
   },
   {
     "id": 20000371,
     "area": "강서구",
     "name": "우장산역 해링턴타워",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000371",
-    "url": "https://ujs2030.co.kr/"
+    "url": "https://ujs2030.co.kr/",
+    "announcementUrl": null
   },
   {
     "id": 20000370,
     "area": "강남구",
     "name": "신논현역 리스트 강남",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000370",
-    "url": "http://www.listgangnam.co.kr/"
+    "url": "http://www.listgangnam.co.kr/",
+    "announcementUrl": null
   },
   {
     "id": 20000365,
     "area": "마포구",
     "name": "상수역 홍대 크리원",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000365",
-    "url": "https://www.creaone.kr/kr/index.php"
+    "url": "https://www.creaone.kr/kr/index.php",
+    "announcementUrl": "https://www.creaone.kr/kr/customer/notice.php"
   },
   {
     "id": 20000364,
     "area": "강동구",
     "name": "천호역 한강리슈빌",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000364",
-    "url": "https://천호역세권청년주택.com"
+    "url": "https://천호역세권청년주택.com",
+    "announcementUrl": null
   },
   {
     "id": 20000363,
     "area": "서초구",
     "name": "서초역 서초꽃마을",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000363",
-    "url": "https://seocho1502.modoo.at/"
+    "url": "https://seocho1502.modoo.at/",
+    "announcementUrl": null
   },
   {
     "id": 20000362,
     "area": "용산구",
     "name": "삼각지역 용산 베르디움 프렌즈",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000362",
-    "url": "http://www.ys-vertium-friends.co.kr/main/index.php"
+    "url": "http://www.ys-vertium-friends.co.kr/main/index.php",
+    "announcementUrl": "https://www.ys-vertium-friends.co.kr/board/board_list.php?board_name=508c75c8507"
   },
   {
     "id": 20000361,
     "area": "동작구",
     "name": "노량진역 더클래식동작",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000361",
-    "url": "https://theclassic2030.modoo.at/"
+    "url": "https://theclassic2030.modoo.at/",
+    "announcementUrl": "https://theclassic2030.modoo.at/?link=eez99qhu"
   },
   {
     "id": 20000360,
     "area": "강서구",
     "name": "등촌역 아임2030",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000360",
-    "url": "https://im2030.modoo.at"
+    "url": "https://im2030.modoo.at",
+    "announcementUrl": "https://im2030.modoo.at/?link=6h5mcxkx"
   },
   {
     "id": 20000357,
     "area": "동대문구",
     "name": "회기역 휘경제이스카이시티",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000357",
-    "url": "https://hkjskycity.modoo.at/"
+    "url": "https://hkjskycity.modoo.at/",
+    "announcementUrl": "https://hkjskycity.modoo.at/?link=f3scs7qg"
   },
   {
     "id": 20000356,
     "area": "강서구",
     "name": "화곡역 보눔하우스 화곡",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000356",
-    "url": "https://bonumhaus2030.modoo.at/"
+    "url": "https://bonumhaus2030.modoo.at/",
+    "announcementUrl": "https://bonumhaus2030.modoo.at/?link=czpnlnoj"
   },
   {
     "id": 20000354,
     "area": "강서구",
     "name": "등촌역 센터스퀘어 등촌",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000354",
-    "url": "https://centersquare.modoo.at/"
+    "url": "https://centersquare.modoo.at/",
+    "announcementUrl": "https://centersquare.modoo.at/?link=bpjvg4uq"
   },
   {
     "id": 20000353,
     "area": "마포구",
     "name": "합정역 서교 효성 해링턴타워",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000353",
-    "url": null
+    "url": null,
+    "announcementUrl": null
   },
   {
     "id": 20000352,
     "area": "서대문구",
     "name": "충정로역 어바니엘 위드 더 스타일 충정로",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000352",
-    "url": "https://www.elyes.co.kr/main/stayView.do?pid=10"
+    "url": "https://www.elyes.co.kr/main/stayView.do?pid=10",
+    "announcementUrl": "https://www.elyes.co.kr/info/notice.do"
   },
   {
     "id": 20000479,
     "area": "서초구",
     "name": "양재역 CONEST",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000479",
-    "url": "http://www.conest.co.kr/"
+    "url": "http://www.conest.co.kr/",
+    "announcementUrl": "http://www.conest.co.kr/resource/board/CONEST_Space+type.pdf"
   },
   {
     "id": 20000480,
     "area": "강남구",
     "name": "역삼역 더원역삼",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000480",
-    "url": "https://www.theoneys.co.kr/"
+    "url": "https://www.theoneys.co.kr/",
+    "announcementUrl": "https://www.theoneys.co.kr/notice"
   },
   {
     "id": 20000482,
     "area": "광진구",
     "name": "강변역 센텀힐스한강",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000482",
-    "url": "http://www.centumhills.co.kr/"
+    "url": "http://www.centumhills.co.kr/",
+    "announcementUrl": "http://www.centumhills.co.kr/bbs/board.php?bo_table=news"
   },
   {
     "id": 20000484,
     "area": "강남구",
     "name": "선정릉역 모아엘가 퍼스트홈",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000484",
-    "url": "https://first-home.co.kr/"
+    "url": "https://first-home.co.kr/",
+    "announcementUrl": null
   },
   {
     "id": 20000496,
     "area": "관악구",
     "name": "신림역 최강타워",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000496",
-    "url": "https://www.최강타워.com"
+    "url": "https://www.최강타워.com",
+    "announcementUrl": "https://www.xn--939aq02c7teiyd.com/sub/sub05_01.php"
   },
   {
     "id": 20000501,
     "area": "영등포구",
     "name": "신길역 준타워",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000501",
-    "url": "https://juntower.co.kr"
+    "url": "https://juntower.co.kr",
+    "announcementUrl": "https://juntower.co.kr/service/notice"
   },
   {
     "id": 20000506,
     "area": "강남구",
     "name": "선릉역 마에스트로",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000506",
-    "url": "https://maestrosamseong.com"
+    "url": "https://maestrosamseong.com",
+    "announcementUrl": "https://maestrosamseong.com/sub.php?code=26"
   },
   {
     "id": 20000498,
     "area": "강동구",
     "name": "천호역 효성해링턴타워",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000498",
-    "url": "https://www.cheonho2030.com/"
+    "url": "https://www.cheonho2030.com/",
+    "announcementUrl": "https://www.cheonho2030.com/sub/sub04_02.php"
   }
 ]
