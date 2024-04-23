@@ -25,7 +25,7 @@ const getHouseAnnouncementUrl = async input => {
   // TODO: 수정
   const systemPrompt = `공지사항 링크를 찾아줘.
   링크만 출력해야 해. 예를 들어 링크가 "https://www.abc.com" 이면, 답변은 https://www.abc.com 여야 해.
-  링크를 찾지 못했다면 아무것도 출력하지마.`;
+  링크를 찾지 못했다면 NULL로 답변해.`;
   const prompt = ChatPromptTemplate.fromMessages([
     ['system', systemPrompt],
     ['user', '{input}'],

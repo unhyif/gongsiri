@@ -24,7 +24,7 @@ export default async function Home() {
   // const res = await chain.invoke({
   //   input: html,
   // });
-  const res = await fetch('http://localhost:3000/api/houses', {
+  const res = await fetch(process.env.API_BASE_URL + '/houses', {
     next: { revalidate: 7200 },
   });
   const data: House[] = await res.json();
