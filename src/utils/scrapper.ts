@@ -1,10 +1,16 @@
 import puppeteer from 'puppeteer';
-import { reduceTokensFromHtml } from './string';
+import { reduceTokensFromHtml } from '@utils/string';
 
 export const scrapMainContent = async (url: string) => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto(url, { waitUntil: 'networkidle0' });
+
+  try {
+    await page.goto(url, { waitUntil: 'networkidle0' });
+  } catch (e) {
+    await browser.close();
+    return null;
+  }
 
   const result = await page.evaluate(() => {
     const selectorsToRemove = ['script', 'nav', 'header', 'footer', 'img'];
@@ -13,10 +19,10 @@ export const scrapMainContent = async (url: string) => {
       elements.forEach(element => element.remove());
     });
 
-    return reduceTokensFromHtml(document.body.innerHTML);
+    return document.body.innerHTML;
   });
 
   await browser.close();
 
-  return result;
+  return reduceTokensFromHtml(result);
 };

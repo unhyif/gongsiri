@@ -47,6 +47,7 @@ export const crawlHouseAnnouncementUrls = async () => {
     try {
       await page.goto(house.url);
       const urls = await page.evaluate(scrapStaticUrls);
+      // TODO: 최적화 고민
       house.announcementUrl = await getHouseAnnouncementUrl(urls);
     } catch (e) {
       console.log(house, e);
