@@ -13,7 +13,7 @@ importers:
         version: 11.11.4(@types/react@18.2.79)(react@18.2.0)
       '@langchain/community':
         specifier: ^0.0.50
-        version: 0.0.50(@huggingface/inference@2.6.7)(ws@8.16.0)
+        version: 0.0.50(@huggingface/inference@2.6.7)(hnswlib-node@3.0.0)(ws@8.16.0)
       '@langchain/core':
         specifier: ^0.1.58
         version: 0.1.58
@@ -25,7 +25,7 @@ importers:
         version: 2.8.0(@types/react@18.2.79)(react@18.2.0)
       langchain:
         specifier: ^0.1.34
-        version: 0.1.34(@huggingface/inference@2.6.7)(ignore@5.3.1)(puppeteer@22.6.5(typescript@5.4.5))(ws@8.16.0)
+        version: 0.1.34(@huggingface/inference@2.6.7)(hnswlib-node@3.0.0)(ignore@5.3.1)(puppeteer@22.6.5(typescript@5.4.5))(ws@8.16.0)
       next:
         specifier: 14.2.2
         version: 14.2.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -38,6 +38,9 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      zod:
+        specifier: ^3.23.4
+        version: 3.23.4
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -776,6 +779,9 @@ packages:
   binary-search@1.3.6:
     resolution: {integrity: sha512-nbE1WxOTTrUWIfsfZ4aHGYu5DOuNkbxGokjV6Z2kxfJK3uaAb8zNK1muzOeipoLHZjInT4Br88BHpzevc681xA==}
 
+  bindings@1.5.0:
+    resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
+
   brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
 
@@ -1187,6 +1193,9 @@ packages:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
     engines: {node: ^10.12.0 || >=12.0.0}
 
+  file-uri-to-path@1.0.0:
+    resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
+
   fill-range@7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
     engines: {node: '>=8'}
@@ -1333,6 +1342,9 @@ packages:
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
+
+  hnswlib-node@3.0.0:
+    resolution: {integrity: sha512-fypn21qvVORassppC8/qNfZ5KAOspZpm/IbUkAtlqvbtDNnF5VVk5RWF7O5V6qwr7z+T3s1ePej6wQt5wRQ4Cg==}
 
   hoist-non-react-statics@3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
@@ -1854,6 +1866,10 @@ packages:
         optional: true
       sass:
         optional: true
+
+  node-addon-api@8.0.0:
+    resolution: {integrity: sha512-ipO7rsHEBqa9STO5C5T10fj732ml+5kLN1cAG8/jdHd56ldQeGj3Q7+scUS+VHK/qy1zLEwC4wMK5+yM0btPvw==}
+    engines: {node: ^18 || ^20 || >= 21}
 
   node-domexception@1.0.0:
     resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
@@ -2435,8 +2451,8 @@ packages:
   zod@3.22.4:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
 
-  zod@3.22.5:
-    resolution: {integrity: sha512-HqnGsCdVZ2xc0qWPLdO25WnseXThh0kEYKIdV5F/hTHO75hNZFp8thxSeHhiPrHZKrFTo1SOgkAj9po5bexZlw==}
+  zod@3.23.4:
+    resolution: {integrity: sha512-/AtWOKbBgjzEYYQRNfoGKHObgfAZag6qUJX1VbHo2PRBgS+wfWagEY2mizjfyAPcGesrJOcx/wcl0L9WnVrHFw==}
 
 snapshots:
 
@@ -2593,7 +2609,7 @@ snapshots:
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
-  '@langchain/community@0.0.50(@huggingface/inference@2.6.7)(ws@8.16.0)':
+  '@langchain/community@0.0.50(@huggingface/inference@2.6.7)(hnswlib-node@3.0.0)(ws@8.16.0)':
     dependencies:
       '@langchain/core': 0.1.58
       '@langchain/openai': 0.0.28
@@ -2601,10 +2617,11 @@ snapshots:
       flat: 5.0.2
       langsmith: 0.1.18
       uuid: 9.0.1
-      zod: 3.22.5
-      zod-to-json-schema: 3.22.5(zod@3.22.5)
+      zod: 3.23.4
+      zod-to-json-schema: 3.22.5(zod@3.23.4)
     optionalDependencies:
       '@huggingface/inference': 2.6.7
+      hnswlib-node: 3.0.0
       ws: 8.16.0
     transitivePeerDependencies:
       - encoding
@@ -2621,16 +2638,16 @@ snapshots:
       p-queue: 6.6.2
       p-retry: 4.6.2
       uuid: 9.0.1
-      zod: 3.22.5
-      zod-to-json-schema: 3.22.5(zod@3.22.5)
+      zod: 3.23.4
+      zod-to-json-schema: 3.22.5(zod@3.23.4)
 
   '@langchain/openai@0.0.28':
     dependencies:
       '@langchain/core': 0.1.58
       js-tiktoken: 1.0.11
       openai: 4.38.2
-      zod: 3.22.5
-      zod-to-json-schema: 3.22.5(zod@3.22.5)
+      zod: 3.23.4
+      zod-to-json-schema: 3.22.5(zod@3.23.4)
     transitivePeerDependencies:
       - encoding
 
@@ -2963,6 +2980,11 @@ snapshots:
   binary-extensions@2.3.0: {}
 
   binary-search@1.3.6: {}
+
+  bindings@1.5.0:
+    dependencies:
+      file-uri-to-path: 1.0.0
+    optional: true
 
   brace-expansion@1.1.11:
     dependencies:
@@ -3524,6 +3546,9 @@ snapshots:
     dependencies:
       flat-cache: 3.2.0
 
+  file-uri-to-path@1.0.0:
+    optional: true
+
   fill-range@7.0.1:
     dependencies:
       to-regex-range: 5.0.1
@@ -3690,6 +3715,12 @@ snapshots:
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
+
+  hnswlib-node@3.0.0:
+    dependencies:
+      bindings: 1.5.0
+      node-addon-api: 8.0.0
+    optional: true
 
   hoist-non-react-statics@3.3.2:
     dependencies:
@@ -3908,10 +3939,10 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  langchain@0.1.34(@huggingface/inference@2.6.7)(ignore@5.3.1)(puppeteer@22.6.5(typescript@5.4.5))(ws@8.16.0):
+  langchain@0.1.34(@huggingface/inference@2.6.7)(hnswlib-node@3.0.0)(ignore@5.3.1)(puppeteer@22.6.5(typescript@5.4.5))(ws@8.16.0):
     dependencies:
       '@anthropic-ai/sdk': 0.9.1
-      '@langchain/community': 0.0.50(@huggingface/inference@2.6.7)(ws@8.16.0)
+      '@langchain/community': 0.0.50(@huggingface/inference@2.6.7)(hnswlib-node@3.0.0)(ws@8.16.0)
       '@langchain/core': 0.1.58
       '@langchain/openai': 0.0.28
       binary-extensions: 2.3.0
@@ -3925,8 +3956,8 @@ snapshots:
       p-retry: 4.6.2
       uuid: 9.0.1
       yaml: 2.4.1
-      zod: 3.22.5
-      zod-to-json-schema: 3.22.5(zod@3.22.5)
+      zod: 3.23.4
+      zod-to-json-schema: 3.22.5(zod@3.23.4)
     optionalDependencies:
       ignore: 5.3.1
       puppeteer: 22.6.5(typescript@5.4.5)
@@ -4135,6 +4166,9 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+
+  node-addon-api@8.0.0:
+    optional: true
 
   node-domexception@1.0.0: {}
 
@@ -4784,10 +4818,10 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zod-to-json-schema@3.22.5(zod@3.22.5):
+  zod-to-json-schema@3.22.5(zod@3.23.4):
     dependencies:
-      zod: 3.22.5
+      zod: 3.23.4
 
   zod@3.22.4: {}
 
-  zod@3.22.5: {}
+  zod@3.23.4: {}

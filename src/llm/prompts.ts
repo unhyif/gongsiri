@@ -1,4 +1,20 @@
-export const recruitmentSystemPrompt = `나는 공실에 입주하고 싶은 사람이야.
-주어지는 HTML에서 최신 입주자 모집 공고가 있다면 글 제목을 알려줘.
-다만, 지원 기간이 이미 지났다는 것을 추측할 수 있는 글들은 제외해야 해. 예를 들어, 서류 제출, 결과 발표 또는 보증금 안내와 같이 당첨자들을 대상으로 한 안내 사항들은 제외해줘. 나에게 불필요한 정보이기 때문이지.
-그리고 답변에는 글 제목만 포함해줘. 글을 찾지 못했다면 NULL로 답변해.`;
+export const latestAnnouncementSystemPrompt = `
+You are an expert extraction algorithm.
+Only extract relevant information from the context.
+{format_instructions}
+
+If you do not know the value of an attribute asked to extract, you must omit the attribute's value.
+`;
+
+export const latestAnnouncementHumanPrompt = `주어지는 context는 공지사항 페이지를 나타내는 HTML입니다.
+
+<context>
+{context}
+</context>
+
+<question>
+HTML 페이지에 포함된 공지사항 중, 가장 최근 공지사항의 제목과 날짜를 찾아주세요.
+- 찾은 제목과 날짜를 그대로 제공하세요. 그 외 다른 내용은 추가하지 마세요.
+- 공지사항 목록은 'table' 태그 내에 위치해 있을 가능성이 높습니다.
+</question>
+`;
