@@ -20,7 +20,7 @@
     "area": "종로구",
     "name": "동묘앞역 동대문영하우스",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000359",
-    "url": null,
+    "url": "https://younghome.modoo.at/",
     "announcementUrl": null
   },
   {
@@ -101,7 +101,7 @@
     "name": "쌍문역 인히어쌍문",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000419",
     "url": "http://ghp.kr/",
-    "announcementUrl": "https://ghp.kr/sub/news/news.asp"
+    "announcementUrl": null
   },
   {
     "id": 20000355,
@@ -109,7 +109,7 @@
     "name": "광흥창역 이랜드신촌청년주택",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000355",
     "url": "http://elandhome.co.kr/index.php",
-    "announcementUrl": "https://elandhome.co.kr/sub/sub04_03.php"
+    "announcementUrl": "http://elandhome.co.kr/sub/sub04_03.php"
   },
   {
     "id": 20000513,
@@ -172,8 +172,8 @@
     "area": "송파구",
     "name": "잠실새내역 잠실엘타워",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000420",
-    "url": null,
-    "announcementUrl": null
+    "url": "http://www.jamsilltower.co.kr/index.php",
+    "announcementUrl": "http://www.jamsilltower.co.kr/bbs/board.php?bo_table=5_1"
   },
   {
     "id": 20000418,
@@ -205,7 +205,7 @@
     "name": "발산역 엘크루",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000415",
     "url": "https://youngtower.modoo.at/",
-    "announcementUrl": "https://youngtower.modoo.at/#main"
+    "announcementUrl": "https://youngtower.modoo.at/?link=94gu5os0"
   },
   {
     "id": 20000414,
@@ -244,8 +244,8 @@
     "area": "관악구",
     "name": "서울대입구역 BX201",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000386",
-    "url": null,
-    "announcementUrl": null
+    "url": "https://bx201seoul.modoo.at/",
+    "announcementUrl": "https://bx201seoul.modoo.at/?link=3gs5oxwu"
   },
   {
     "id": 20000371,
@@ -253,7 +253,7 @@
     "name": "우장산역 해링턴타워",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000371",
     "url": "https://ujs2030.co.kr/",
-    "announcementUrl": null
+    "announcementUrl": "https://ujs2030.co.kr/sub06_1"
   },
   {
     "id": 20000370,
@@ -261,7 +261,7 @@
     "name": "신논현역 리스트 강남",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000370",
     "url": "http://www.listgangnam.co.kr/",
-    "announcementUrl": null
+    "announcementUrl": "http://www.listgangnam.co.kr/bbs/board.php?bo_table=news"
   },
   {
     "id": 20000365,
@@ -276,8 +276,8 @@
     "area": "강동구",
     "name": "천호역 한강리슈빌",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000364",
-    "url": "https://천호역세권청년주택.com",
-    "announcementUrl": null
+    "url": "http://xn--zf0bo4e9zsyre7pe70grdw68amqm.com/",
+    "announcementUrl": "http://xn--zf0bo4e9zsyre7pe70grdw68amqm.com/bbs/board.php?bo_table=notice"
   },
   {
     "id": 20000363,
@@ -285,7 +285,7 @@
     "name": "서초역 서초꽃마을",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000363",
     "url": "https://seocho1502.modoo.at/",
-    "announcementUrl": null
+    "announcementUrl": "https://seocho1502.modoo.at/?link=8a7g4ml6"
   },
   {
     "id": 20000362,
@@ -357,7 +357,7 @@
     "name": "양재역 CONEST",
     "shUrl": "https://soco.seoul.go.kr/youth/pgm/home/yohome/view.do?menuNo=400002&homeCode=20000479",
     "url": "http://www.conest.co.kr/",
-    "announcementUrl": "http://www.conest.co.kr/resource/board/CONEST_Space+type.pdf"
+    "announcementUrl": "http://www.conest.co.kr/notice"
   },
   {
     "id": 20000480,
