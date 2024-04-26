@@ -8,8 +8,10 @@ export interface BaseHouse {
 }
 
 export interface House extends BaseHouse {
-  latestAnnouncement: {
-    title: string | null;
-    createdAt: string | null;
-  };
+  latestAnnouncement: Announcement;
+}
+
+export interface Announcement {
+  title: string | null;
+  createdAt: string | null;
 }

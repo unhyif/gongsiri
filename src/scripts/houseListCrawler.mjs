@@ -1,4 +1,6 @@
-import { crawlHouseAnnouncementUrls } from './houseAnnouncementUrlCrawler.mjs';
+// TODO: repo 옮기기
+
+import { crawlAnnouncementUrls } from './announcementUrlCrawler.mjs';
 import fs from 'fs/promises';
 import puppeteer from 'puppeteer';
 
@@ -12,8 +14,10 @@ const scrapHouses = baseUrl => {
   const houses = [];
 
   const rows = document.body.querySelectorAll('#cohomeForm tr');
+
   rows.forEach(row => {
     const cells = row.querySelectorAll('td');
+
     const areaCell = cells[2];
     const nameCell = cells[3];
 
@@ -24,6 +28,7 @@ const scrapHouses = baseUrl => {
       name: nameCell.innerText.trim(),
       shUrl: baseUrl.replace('/list', '/view') + `&homeCode=${houseId}`,
     };
+
     houses.push(house);
   });
 
@@ -31,14 +36,14 @@ const scrapHouses = baseUrl => {
 };
 
 const scrapHouseUrl = () => {
-  function isValidURL(url) {
+  const isValidURL = url => {
     try {
       new URL(url);
       return true;
     } catch {
       return false;
     }
-  }
+  };
 
   const url = document.body.querySelector('#detail1 a').innerText.trim();
   const houseUrl = isValidURL(url) ? url : null;
@@ -61,11 +66,12 @@ const goNext = async (page, nextPageIndex) => {
 (async () => {
   const browser = await puppeteer.launch();
   const listPage = await browser.newPage();
+  const viewPage = await browser.newPage();
+
   await listPage.goto(BASE_URL, { waitUntil: 'networkidle0' });
 
   const totalPageIndex = await listPage.evaluate(scrapTotalPageIndex);
 
-  const viewPage = await browser.newPage();
   let result = [];
 
   for (
@@ -74,6 +80,7 @@ const goNext = async (page, nextPageIndex) => {
     currentPageIndex++
   ) {
     const houses = await listPage.evaluate(scrapHouses, BASE_URL);
+
     for (const house of houses) {
       await viewPage.goto(house.shUrl, { waitUntil: 'networkidle2' });
       house.url = await viewPage.evaluate(scrapHouseUrl);
@@ -82,11 +89,14 @@ const goNext = async (page, nextPageIndex) => {
     result = result.concat(houses);
 
     if (currentPageIndex === totalPageIndex) break;
+
     await listPage.bringToFront();
     await goNext(listPage, currentPageIndex + 1);
   }
 
   await browser.close();
+
   await fs.writeFile('./src/data/houseList.json', JSON.stringify(result));
-  await crawlHouseAnnouncementUrls();
+
+  await crawlAnnouncementUrls();
 })();

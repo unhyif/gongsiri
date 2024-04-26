@@ -1,9 +1,8 @@
 import { House } from '../types';
 
 export default async function Home() {
-  // TODO: timeout 확인
   const res = await fetch(process.env.API_BASE_URL + '/houses', {
-    next: { revalidate: 3600 },
+    next: { revalidate: 1800 },
   });
   const { data, updatedAt }: { data: House[]; updatedAt: number } =
     await res.json();

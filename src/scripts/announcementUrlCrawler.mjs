@@ -17,11 +17,10 @@ const scrapStaticUrls = () => {
   );
 };
 
-const getHouseAnnouncementUrl = async input => {
+const getAnnouncementUrl = async links => {
   const model = new ChatOpenAI({
     cache: true,
   });
-  const parser = new StringOutputParser();
   // TODO: 수정
   const systemPrompt = `공지사항 링크를 찾아줘.
   링크만 출력해야 해. 예를 들어 링크가 "https://www.abc.com" 이면, 답변은 https://www.abc.com 여야 해.
@@ -30,12 +29,14 @@ const getHouseAnnouncementUrl = async input => {
     ['system', systemPrompt],
     ['user', '{input}'],
   ]);
+  const parser = new StringOutputParser();
+
   const chain = prompt.pipe(model).pipe(parser);
-  const res = await chain.invoke({ input });
+  const res = await chain.invoke({ input: links });
   return res;
 };
 
-export const crawlHouseAnnouncementUrls = async () => {
+export const crawlAnnouncementUrls = async () => {
   const houses = JSON.parse(
     await fs.promises.readFile('./src/data/houseList.json', 'utf8')
   );
@@ -48,7 +49,7 @@ export const crawlHouseAnnouncementUrls = async () => {
       await page.goto(house.url);
       const urls = await page.evaluate(scrapStaticUrls);
       // TODO: 최적화 고민
-      house.announcementUrl = await getHouseAnnouncementUrl(urls);
+      house.announcementUrl = await getAnnouncementUrl(urls);
     } catch (e) {
       console.log(house, e);
       house.announcementUrl = null;
