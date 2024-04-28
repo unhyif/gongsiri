@@ -27,6 +27,6 @@ export async function GET() {
 
   return Response.json({
     data: houses,
-    updatedAt: new Date(Number(updatedAtObj?.value.N)).toString(),
+    updatedAt: Number(updatedAtObj?.value.N),
   });
 }
