@@ -1,4 +1,4 @@
-# Gongsiri (WIP 🚧)
+# 공실이 (WIP 🚧)
 
 > 동적 크롤링과 LLM을 활용한 SH 청년안심주택 공실 안내 서비스
 
@@ -6,7 +6,7 @@
 
 <br />
 
-### 🛠️ Tech Stack
+### Tech Stack
 
 - TypeScript, JavaScript, Next.js, Jotai, Emotion
 - Serverless, AWS Lambda, DynamoDB [(repo)](https://github.com/unhyif/gongsiri-lambda)
