@@ -1,7 +1,6 @@
 import { House } from '../types';
 
 export default async function Home() {
-  return <span>Temp</span>;
   const res = await fetch(process.env.API_BASE_URL + '/houses', {
     next: { revalidate: 1800 },
   });
