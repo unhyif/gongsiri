@@ -2,7 +2,7 @@ import { House } from '../types';
 
 export default async function Home() {
   const res = await fetch(process.env.API_BASE_URL + '/houses', {
-    next: { revalidate: 1800 },
+    next: { revalidate: 600 },
   });
   const { data, updatedAt }: { data: House[]; updatedAt: number } =
     await res.json();
