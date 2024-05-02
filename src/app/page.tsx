@@ -24,7 +24,8 @@ export default async function Home() {
     'Page',
     new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
     data.length,
-    updatedAt
+    updatedAt,
+    test
   );
 
   const THEAD_CELLS = ['지역', '이름', 'Links', '최근 공지'];
