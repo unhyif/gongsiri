@@ -1,6 +1,7 @@
 import { contactStyle, linkStyle } from './page.css';
 
 import { House } from '../types';
+import { sortHouseList } from '@utils/array';
 
 export default async function Home() {
   const res = await fetch(process.env.API_BASE_URL + '/houses', {
@@ -40,7 +41,7 @@ export default async function Home() {
           </thead>
 
           <tbody>
-            {data.map(house => {
+            {sortHouseList(data).map(house => {
               const {
                 id,
                 area,
