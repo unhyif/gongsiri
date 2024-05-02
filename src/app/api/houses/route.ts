@@ -1,7 +1,7 @@
 import { DynamoDBClient, GetItemCommand } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
 
-export const revalidate = 3;
+export const revalidate = 600;
 
 export async function GET() {
   const client = new DynamoDBClient({});
