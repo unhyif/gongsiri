@@ -12,10 +12,13 @@ import { sortHouseList } from '@utils/array';
 
 export default async function Home() {
   const res = await fetch(process.env.API_BASE_URL + '/houses', {
-    next: { revalidate: 600 },
+    next: { revalidate: 3 },
   });
-  const { data, updatedAt }: { data: House[]; updatedAt: number } =
-    await res.json();
+  const {
+    data,
+    updatedAt,
+    test,
+  }: { data: House[]; updatedAt: number; test: number } = await res.json();
 
   console.log(
     'Page',
@@ -93,6 +96,7 @@ export default async function Home() {
         </table>
       </main>
 
+      <span>{test}</span>
       <footer className={footer}>
         <p>© 2024 Gongsiri. All rights reserved.</p>
         <a href="mailto:unhyif@gmail.com">💌 Contact Developer</a>
