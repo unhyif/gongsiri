@@ -1,7 +1,8 @@
-import './globals.css';
+import '@styles/globals.css';
 
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
+import { themeClass } from '@styles/theme.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} ${themeClass}`}>{children}</body>
     </html>
   );
 }

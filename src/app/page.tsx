@@ -1,4 +1,11 @@
-import { contactStyle, linkStyle } from './page.css';
+import {
+  container,
+  description,
+  footer,
+  link,
+  title,
+  titleWrapper,
+} from './page.css';
 
 import { House } from '../types';
 import { sortHouseList } from '@utils/array';
@@ -17,25 +24,27 @@ export default async function Home() {
     updatedAt
   );
 
+  const THEAD_CELLS = ['지역', '이름', 'Links', '최근 공지'];
+
   return (
     <>
-      <main>
-        <div>
-          <h1>Gongsiri</h1>
-          <p>SH 청년안심주택 공실 안내 서비스</p>
-          <p>
-            최근 업데이트:{' '}
-            {new Date(updatedAt).toLocaleString('ko-KR', {
-              timeZone: 'Asia/Seoul',
-            })}
-          </p>
+      <main className={container}>
+        <div className={titleWrapper}>
+          <h1 className={title}>Gongsiri</h1>
+          <p className={description}>SH 청년안심주택 공실 안내 서비스</p>
         </div>
 
+        <p>
+          최근 업데이트:{' '}
+          {new Date(updatedAt).toLocaleString('ko-KR', {
+            timeZone: 'Asia/Seoul',
+          })}
+        </p>
         <table>
           <thead>
             <tr>
-              {['지역', '이름', 'Links', '최근 공지'].map(col => (
-                <th key={col}>{col}</th>
+              {THEAD_CELLS.map(cell => (
+                <th key={cell}>{cell}</th>
               ))}
             </tr>
           </thead>
@@ -56,17 +65,17 @@ export default async function Home() {
                   <td>{area}</td>
                   <td>{name}</td>
                   <td>
-                    <a className={linkStyle} href={shUrl} target="_blank">
+                    <a className={link} href={shUrl} target="_blank">
                       SH
                     </a>{' '}
                     {url && (
-                      <a className={linkStyle} href={url} target="_blank">
+                      <a className={link} href={url} target="_blank">
                         Official
                       </a>
                     )}{' '}
                     {announcementUrl && (
                       <a
-                        className={linkStyle}
+                        className={link}
                         href={announcementUrl}
                         target="_blank"
                       >
@@ -84,11 +93,9 @@ export default async function Home() {
         </table>
       </main>
 
-      <footer>
+      <footer className={footer}>
         <p>© 2024 Gongsiri. All rights reserved.</p>
-        <a className={contactStyle} href="mailto:unhyif@gmail.com">
-          💌 Contact Developer
-        </a>
+        <a href="mailto:unhyif@gmail.com">💌 Contact Developer</a>
       </footer>
     </>
   );
