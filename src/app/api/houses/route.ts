@@ -1,7 +1,12 @@
-import { DynamoDBClient, GetItemCommand } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
+import {
+  DynamoDBDocumentClient,
+  GetCommand,
+  ScanCommand,
+} from '@aws-sdk/lib-dynamodb';
 
-export const revalidate = 3;
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+
+export const revalidate = 600;
 
 export async function GET() {
   const client = new DynamoDBClient({});
@@ -13,12 +18,10 @@ export async function GET() {
   const { Items: houses } = await docClient.send(houseListScanCommand);
 
   // TODO: 함수 분리
-  const houseListUpdatedAtGetCommand = new GetItemCommand({
+  const houseListUpdatedAtGetCommand = new GetCommand({
     TableName: process.env.EXTRA_DATA_TABLE,
     Key: {
-      name: {
-        S: 'updatedAt',
-      },
+      name: 'updatedAt',
     },
     AttributesToGet: ['value'],
   });
@@ -27,22 +30,8 @@ export async function GET() {
     houseListUpdatedAtGetCommand
   );
 
-  const testScanCommand = new ScanCommand({
-    TableName: 'Test',
-  });
-  const { Items } = await docClient.send(testScanCommand);
-
-  console.log(
-    'Route Handler',
-    new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
-    houses?.length,
-    updatedAtObj?.value.N,
-    Items?.[0].id
-  );
-
   return Response.json({
     data: houses,
-    updatedAt: Number(updatedAtObj?.value.N),
-    test: Items?.[0].id,
+    updatedAt: updatedAtObj?.value,
   });
 }
