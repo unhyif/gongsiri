@@ -30,6 +30,12 @@ export async function GET() {
     houseListUpdatedAtGetCommand
   );
 
+  console.log(
+    'Route Handler',
+    new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
+    updatedAtObj?.value
+  );
+
   return Response.json({
     data: houses,
     updatedAt: updatedAtObj?.value,
