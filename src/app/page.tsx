@@ -1,3 +1,4 @@
+import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
 import {
   container,
   description,
@@ -7,20 +8,27 @@ import {
   titleWrapper,
 } from './page.css';
 
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { House } from '../types/house';
 import { sortHouseList } from '@utils/house';
 
+export const revalidate = 3;
+
+const client = new DynamoDBClient({});
+const docClient = DynamoDBDocumentClient.from(client);
+
 export default async function Home() {
-  const res = await fetch(process.env.API_BASE_URL + '/houses', {
-    next: { revalidate: 3 },
-  });
-  const {
-    data,
-    updatedAt,
-    test,
-  }: { data: House[]; updatedAt: number; test: number } = await res.json();
+  const res = await fetch(process.env.API_BASE_URL + '/houses');
+  const { data, updatedAt }: { data: House[]; updatedAt: number } =
+    await res.json();
 
   const THEAD_CELLS = ['지역', '이름', 'Links', '최근 공지'];
+
+  const testScanCommand = new ScanCommand({
+    TableName: 'Test',
+  });
+  const { Items } = await docClient.send(testScanCommand);
+  const test = Items?.[0].id;
 
   console.log(
     'Page',
