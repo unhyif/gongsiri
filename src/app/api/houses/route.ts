@@ -6,7 +6,7 @@ import {
 
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 
-export const revalidate = 600;
+export const revalidate = 3;
 
 export async function GET() {
   const client = new DynamoDBClient({});
@@ -30,14 +30,21 @@ export async function GET() {
     houseListUpdatedAtGetCommand
   );
 
+  const testScanCommand = new ScanCommand({
+    TableName: 'Test',
+  });
+  const { Items } = await docClient.send(testScanCommand);
+
   console.log(
     'Route Handler',
     new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
-    updatedAtObj?.value
+    // updatedAtObj?.value,
+    Items?.[0].id
   );
 
   return Response.json({
     data: houses,
     updatedAt: updatedAtObj?.value,
+    test: Items?.[0].id,
   });
 }

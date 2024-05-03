@@ -12,17 +12,21 @@ import { sortHouseList } from '@utils/house';
 
 export default async function Home() {
   const res = await fetch(process.env.API_BASE_URL + '/houses', {
-    next: { revalidate: 600 },
+    next: { revalidate: 3 },
   });
-  const { data, updatedAt }: { data: House[]; updatedAt: number } =
-    await res.json();
+  const {
+    data,
+    updatedAt,
+    test,
+  }: { data: House[]; updatedAt: number; test: number } = await res.json();
 
   const THEAD_CELLS = ['지역', '이름', 'Links', '최근 공지'];
 
   console.log(
     'Page',
     new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
-    updatedAt
+    // updatedAt,
+    test
   );
 
   return (
@@ -92,6 +96,7 @@ export default async function Home() {
         </table>
       </main>
 
+      <span>{test}</span>
       <footer className={footer}>
         <p>© 2024 Gongsiri. All rights reserved.</p>
         <a href="mailto:unhyif@gmail.com">💌 Contact Developer</a>
