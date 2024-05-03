@@ -1,4 +1,4 @@
-import { House } from '../types';
+import { House } from '../types/house';
 
 export const sortHouseList = (houses: House[]) =>
   houses.sort((a, b) => {

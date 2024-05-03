@@ -7,8 +7,8 @@ import {
   titleWrapper,
 } from './page.css';
 
-import { House } from '../types';
-import { sortHouseList } from '@utils/array';
+import { House } from '../types/house';
+import { sortHouseList } from '@utils/house';
 
 export default async function Home() {
   const res = await fetch(process.env.API_BASE_URL + '/houses', {
