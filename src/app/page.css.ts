@@ -10,7 +10,6 @@ export const titleWrapper = style({
   flexDirection: 'column',
   gap: '1.6rem',
   alignItems: 'center',
-  marginBottom: '4rem',
 });
 
 export const title = style({
@@ -19,6 +18,17 @@ export const title = style({
 
 export const description = style({
   color: vars.color.gray,
+});
+
+export const tableWrapper = style({
+  width: 'fit-content',
+});
+
+export const date = style({
+  fontSize: '1.4rem',
+  color: vars.color.gray,
+  textAlign: 'right',
+  margin: '4rem 0 1.6rem 0',
 });
 
 export const link = style({

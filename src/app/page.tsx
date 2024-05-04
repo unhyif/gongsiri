@@ -8,8 +8,10 @@ import {
 import { ItemResponse, ListResponse } from '@/types/database';
 import {
   container,
+  date,
   description,
   footer,
+  tableWrapper,
   title,
   titleWrapper,
 } from './page.css';
@@ -44,7 +46,10 @@ export default async function Home() {
     houseListUpdatedAtGetCommand
   )) as unknown as ItemResponse<GetCommandOutput, { value: number }>;
 
-  const updatedAt = updatedAtObj.value;
+  const updatedAt = new Intl.DateTimeFormat('ko', {
+    dateStyle: 'full',
+    timeStyle: 'medium',
+  }).format(updatedAtObj.value);
 
   return (
     <>
@@ -54,13 +59,10 @@ export default async function Home() {
           <p className={description}>SH 청년안심주택 공실 안내 서비스</p>
         </div>
 
-        <p>
-          최근 업데이트:{' '}
-          {new Date(updatedAt).toLocaleString('ko-KR', {
-            timeZone: 'Asia/Seoul',
-          })}
-        </p>
-        <HouseTable houses={houses} />
+        <div className={tableWrapper}>
+          <p className={date}>최근 업데이트: {updatedAt}</p>
+          <HouseTable houses={houses} />
+        </div>
       </main>
 
       <footer className={footer}>
