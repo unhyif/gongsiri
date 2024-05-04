@@ -1,4 +1,11 @@
-import { DynamoDBDocumentClient, ScanCommand } from '@aws-sdk/lib-dynamodb';
+import {
+  DynamoDBDocumentClient,
+  GetCommand,
+  GetCommandOutput,
+  ScanCommand,
+  ScanCommandOutput,
+} from '@aws-sdk/lib-dynamodb';
+import { ItemResponse, ListResponse } from '@/types/database';
 import {
   container,
   description,
@@ -9,33 +16,38 @@ import {
 } from './page.css';
 
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { House } from '../types/house';
+import { House } from '@/types/house';
 import { sortHouseList } from '@utils/house';
 
-export const revalidate = 3;
+export const dynamic = 'force-dynamic';
 
 const client = new DynamoDBClient({});
 const docClient = DynamoDBDocumentClient.from(client);
 
 export default async function Home() {
-  const res = await fetch(process.env.API_BASE_URL + '/houses');
-  const { data, updatedAt }: { data: House[]; updatedAt: number } =
-    await res.json();
+  const houseListScanCommand = new ScanCommand({
+    TableName: process.env.HOUSE_TABLE,
+  });
+
+  const { Items: houses } = (await docClient.send(
+    houseListScanCommand
+  )) as unknown as ListResponse<ScanCommandOutput, House[]>;
+
+  const houseListUpdatedAtGetCommand = new GetCommand({
+    TableName: process.env.EXTRA_DATA_TABLE,
+    Key: {
+      name: 'updatedAt',
+    },
+    AttributesToGet: ['value'],
+  });
+
+  const { Item: updatedAtObj } = (await docClient.send(
+    houseListUpdatedAtGetCommand
+  )) as unknown as ItemResponse<GetCommandOutput, { value: number }>;
+
+  const updatedAt = updatedAtObj.value;
 
   const THEAD_CELLS = ['지역', '이름', 'Links', '최근 공지'];
-
-  const testScanCommand = new ScanCommand({
-    TableName: 'Test',
-  });
-  const { Items } = await docClient.send(testScanCommand);
-  const test = Items?.[0].id;
-
-  console.log(
-    'Page',
-    new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
-    // updatedAt,
-    test
-  );
 
   return (
     <>
@@ -51,6 +63,7 @@ export default async function Home() {
             timeZone: 'Asia/Seoul',
           })}
         </p>
+
         <table>
           <thead>
             <tr>
@@ -61,7 +74,7 @@ export default async function Home() {
           </thead>
 
           <tbody>
-            {sortHouseList(data).map(house => {
+            {sortHouseList(houses).map(house => {
               const {
                 id,
                 area,
@@ -104,7 +117,6 @@ export default async function Home() {
         </table>
       </main>
 
-      <span>{test}</span>
       <footer className={footer}>
         <p>© 2024 Gongsiri. All rights reserved.</p>
         <a href="mailto:unhyif@gmail.com">💌 Contact Developer</a>
