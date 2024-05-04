@@ -8,7 +8,7 @@
 
 ### Tech Stack
 
-- TypeScript, JavaScript, Next.js, Jotai, vanilla-extract
+- TypeScript, JavaScript, Next.js, vanilla-extract
 - Serverless, AWS Lambda, DynamoDB [(repo)](https://github.com/unhyif/gongsiri-lambda)
 - Puppeteer, Langchain.js (ChatOpenAI)
 - Vercel

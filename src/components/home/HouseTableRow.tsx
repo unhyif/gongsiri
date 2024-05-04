@@ -5,7 +5,7 @@ interface Props {
   house: House;
 }
 
-export const HouseRow = (props: Props) => {
+export const HouseTableRow = (props: Props) => {
   const { id, area, name, shUrl, url, announcementUrl, latestAnnouncement } =
     props.house;
 

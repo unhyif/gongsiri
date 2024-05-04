@@ -16,8 +16,7 @@ import {
 
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { House } from '@/types/house';
-import { HouseRow } from '@components/home/HouseRow';
-import { sortHouseList } from '@utils/house';
+import { HouseTable } from '@components/home/HouseTable';
 
 export const dynamic = 'force-dynamic';
 
@@ -47,8 +46,6 @@ export default async function Home() {
 
   const updatedAt = updatedAtObj.value;
 
-  const THEAD_CELLS = ['지역', '이름', 'Links', '최근 공지'];
-
   return (
     <>
       <main className={container}>
@@ -63,22 +60,7 @@ export default async function Home() {
             timeZone: 'Asia/Seoul',
           })}
         </p>
-
-        <table>
-          <thead>
-            <tr>
-              {THEAD_CELLS.map(cell => (
-                <th key={cell}>{cell}</th>
-              ))}
-            </tr>
-          </thead>
-
-          <tbody>
-            {sortHouseList(houses).map(house => (
-              <HouseRow key={house.id} house={house} />
-            ))}
-          </tbody>
-        </table>
+        <HouseTable houses={houses} />
       </main>
 
       <footer className={footer}>
