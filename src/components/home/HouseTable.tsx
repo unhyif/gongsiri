@@ -1,5 +1,7 @@
 'use client';
 
+import { tableStyle, thStyle } from './houseTable.css';
+
 import { House } from '@/types/house';
 import { HouseTableRow } from './HouseTableRow';
 import { sortHouseList } from '@utils/house';
@@ -12,14 +14,16 @@ interface Props {
 export const HouseTable = (props: Props) => {
   const [houses, setHouses] = useState<House[]>(sortHouseList(props.houses));
 
-  const THEAD_CELLS = ['지역', '이름', 'Links', '최근 공지'];
+  const THEAD_CELLS = ['지역', '이름', '홈페이지', '최근 공지', null, null];
 
   return (
-    <table>
+    <table className={tableStyle}>
       <thead>
         <tr>
           {THEAD_CELLS.map(cell => (
-            <th key={cell}>{cell}</th>
+            <th className={thStyle} key={cell}>
+              {cell}
+            </th>
           ))}
         </tr>
       </thead>

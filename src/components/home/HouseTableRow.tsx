@@ -1,3 +1,5 @@
+import { homePageTdStyle, tdStyle, trStyle } from './houseTableRow.css';
+
 import { House } from '@/types/house';
 import { link } from '@app/page.css';
 
@@ -10,27 +12,29 @@ export const HouseTableRow = (props: Props) => {
     props.house;
 
   return (
-    <tr key={id}>
-      <td>{area}</td>
-      <td>{name}</td>
-      <td>
+    <tr className={trStyle} key={id}>
+      <td className={tdStyle}>{area}</td>
+      <td className={tdStyle}>{name}</td>
+      <td className={`${tdStyle} ${homePageTdStyle}`}>
         <a className={link} href={shUrl} target="_blank">
           SH
-        </a>{' '}
+        </a>
+        {'  '}
         {url && (
           <a className={link} href={url} target="_blank">
             Official
           </a>
-        )}{' '}
+        )}
+        {'  '}
         {announcementUrl && (
           <a className={link} href={announcementUrl} target="_blank">
             공지사항
           </a>
         )}
       </td>
-      <td>{latestAnnouncement.title}</td>
-      <td>{latestAnnouncement.createdAt}</td>
-      <td>⭐️</td>
+      <td className={tdStyle}>{latestAnnouncement.title}</td>
+      <td className={tdStyle}>{latestAnnouncement.createdAt}</td>
+      <td className={tdStyle}>⭐️</td>
     </tr>
   );
 };
