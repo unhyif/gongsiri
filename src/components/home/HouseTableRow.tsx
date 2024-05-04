@@ -1,7 +1,11 @@
-import { homePageTdStyle, tdStyle, trStyle } from './houseTableRow.css';
+import {
+  homePageTdStyle,
+  linkStyle,
+  tdStyle,
+  trStyle,
+} from './houseTableRow.css';
 
 import { House } from '@/types/house';
-import { link } from '@app/page.css';
 
 interface Props {
   house: House;
@@ -16,18 +20,18 @@ export const HouseTableRow = (props: Props) => {
       <td className={tdStyle}>{area}</td>
       <td className={tdStyle}>{name}</td>
       <td className={`${tdStyle} ${homePageTdStyle}`}>
-        <a className={link} href={shUrl} target="_blank">
+        <a className={linkStyle} href={shUrl} target="_blank">
           SH
         </a>
         {'  '}
         {url && (
-          <a className={link} href={url} target="_blank">
+          <a className={linkStyle} href={url} target="_blank">
             Official
           </a>
         )}
         {'  '}
         {announcementUrl && (
-          <a className={link} href={announcementUrl} target="_blank">
+          <a className={linkStyle} href={announcementUrl} target="_blank">
             공지사항
           </a>
         )}

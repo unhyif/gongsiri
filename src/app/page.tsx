@@ -7,13 +7,13 @@ import {
 } from '@aws-sdk/lib-dynamodb';
 import { ItemResponse, ListResponse } from '@/types/database';
 import {
-  container,
-  date,
-  description,
-  footer,
-  tableWrapper,
-  title,
-  titleWrapper,
+  containerStyle,
+  descriptionStyle,
+  footerStyle,
+  tableWrapperStyle,
+  titleStyle,
+  titleWrapperStyle,
+  updatedAtStyle,
 } from './page.css';
 
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
@@ -53,19 +53,19 @@ export default async function Home() {
 
   return (
     <>
-      <main className={container}>
-        <div className={titleWrapper}>
-          <h1 className={title}>Gongsiri</h1>
-          <p className={description}>SH 청년안심주택 공실 안내 서비스</p>
+      <main className={containerStyle}>
+        <div className={titleWrapperStyle}>
+          <h1 className={titleStyle}>Gongsiri</h1>
+          <p className={descriptionStyle}>SH 청년안심주택 공실 안내 서비스</p>
         </div>
 
-        <div className={tableWrapper}>
-          <p className={date}>최근 업데이트: {updatedAt}</p>
+        <div className={tableWrapperStyle}>
+          <p className={updatedAtStyle}>최근 업데이트: {updatedAt}</p>
           <HouseTable houses={houses} />
         </div>
       </main>
 
-      <footer className={footer}>
+      <footer className={footerStyle}>
         <p>© 2024 Gongsiri. All rights reserved.</p>
         <a href="mailto:unhyif@gmail.com">💌 Contact Developer</a>
       </footer>
