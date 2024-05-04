@@ -24,6 +24,7 @@
       "@data/*": ["./data/*"],
       "@llm/*": ["./llm/*"],
       "@scripts/*": ["./scripts/*"],
+      "@states/*": ["./states/*"],
       "@styles/*": ["./styles/*"],
       "@/types/*": ["./types/*"],
       "@utils/*": ["./utils/*"],

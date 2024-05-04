@@ -10,13 +10,13 @@ import {
   container,
   description,
   footer,
-  link,
   title,
   titleWrapper,
 } from './page.css';
 
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { House } from '@/types/house';
+import { HouseRow } from '@components/home/HouseRow';
 import { sortHouseList } from '@utils/house';
 
 export const dynamic = 'force-dynamic';
@@ -74,45 +74,9 @@ export default async function Home() {
           </thead>
 
           <tbody>
-            {sortHouseList(houses).map(house => {
-              const {
-                id,
-                area,
-                name,
-                shUrl,
-                url,
-                announcementUrl,
-                latestAnnouncement,
-              } = house;
-              return (
-                <tr key={id}>
-                  <td>{area}</td>
-                  <td>{name}</td>
-                  <td>
-                    <a className={link} href={shUrl} target="_blank">
-                      SH
-                    </a>{' '}
-                    {url && (
-                      <a className={link} href={url} target="_blank">
-                        Official
-                      </a>
-                    )}{' '}
-                    {announcementUrl && (
-                      <a
-                        className={link}
-                        href={announcementUrl}
-                        target="_blank"
-                      >
-                        공지사항
-                      </a>
-                    )}
-                  </td>
-                  <td>{latestAnnouncement.title}</td>
-                  <td>{latestAnnouncement.createdAt}</td>
-                  <td>⭐️</td>
-                </tr>
-              );
-            })}
+            {sortHouseList(houses).map(house => (
+              <HouseRow key={house.id} house={house} />
+            ))}
           </tbody>
         </table>
       </main>
