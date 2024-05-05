@@ -13,7 +13,8 @@ export const tableStyle = style({
 });
 
 export const thStyle = style({
-  background: 'rgb(229, 231, 235)',
+  background: vars.color.main,
+  color: 'white',
   padding: '1.2rem 1.6rem',
   fontWeight: 'inherit',
 });

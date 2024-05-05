@@ -17,5 +17,5 @@ export const homePageTdStyle = style([
 ]);
 
 export const linkStyle = style({
-  color: vars.color.blue,
+  color: vars.color.main,
 });

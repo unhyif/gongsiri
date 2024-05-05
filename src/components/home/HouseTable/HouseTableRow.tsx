@@ -6,6 +6,7 @@ import {
 } from './houseTableRow.css';
 
 import { House } from '@/types/house';
+import Star from '@assets/svgs/star_filled.svg';
 
 interface Props {
   house: House;
@@ -38,7 +39,11 @@ const HouseTableRow = (props: Props) => {
       </td>
       <td className={tdStyle}>{latestAnnouncement.title}</td>
       <td className={tdStyle}>{latestAnnouncement.createdAt}</td>
-      <td className={tdStyle}>⭐️</td>
+      <td className={tdStyle}>
+        <button>
+          <Star width={20} height={20} fill="#F9CC15" />
+        </button>
+      </td>
     </tr>
   );
 };
