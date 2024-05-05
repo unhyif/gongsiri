@@ -11,6 +11,7 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://gongsiri.vercel.app/'),
   title: 'Gongsiri',
   description: 'SH 청년안심주택 공실 안내 서비스',
   openGraph: {
