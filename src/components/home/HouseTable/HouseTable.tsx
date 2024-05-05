@@ -4,15 +4,16 @@ import { tableStyle, thStyle } from './HouseTable.css';
 
 import { House } from '@/types/house';
 import HouseTableRow from './HouseTableRow';
-import { sortHouseList } from '@utils/house';
-import { useState } from 'react';
+import { useHouses } from './useHouses';
 
 interface Props {
-  houses: House[];
+  houseList: House[];
 }
 
 const HouseTable = (props: Props) => {
-  const [houses, setHouses] = useState<House[]>(sortHouseList(props.houses));
+  const { houseList } = props;
+
+  const { houses, toggleFavorite } = useHouses({ houseList });
 
   const TH_CELLS = ['지역', '이름', '홈페이지', '최근 공지', '', ''];
 
@@ -30,7 +31,11 @@ const HouseTable = (props: Props) => {
 
       <tbody>
         {houses.map(house => (
-          <HouseTableRow key={house.id} house={house} />
+          <HouseTableRow
+            key={house.id}
+            house={house}
+            onClickFavorite={toggleFavorite}
+          />
         ))}
       </tbody>
     </table>

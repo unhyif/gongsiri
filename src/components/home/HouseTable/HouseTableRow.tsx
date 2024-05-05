@@ -5,16 +5,29 @@ import {
   trStyle,
 } from './houseTableRow.css';
 
-import { House } from '@/types/house';
+import { HouseCell } from '@/types/house';
 import Star from '@assets/svgs/star_filled.svg';
 
 interface Props {
-  house: House;
+  house: HouseCell;
+  onClickFavorite: (houseId: number) => void;
 }
 
 const HouseTableRow = (props: Props) => {
-  const { id, area, name, shUrl, url, announcementUrl, latestAnnouncement } =
-    props.house;
+  const { house, onClickFavorite } = props;
+
+  const {
+    id,
+    area,
+    name,
+    shUrl,
+    url,
+    announcementUrl,
+    latestAnnouncement,
+    isFavorite,
+  } = house;
+
+  const handleClickFavorite = () => onClickFavorite(house.id);
 
   return (
     <tr className={trStyle} key={id}>
@@ -40,7 +53,7 @@ const HouseTableRow = (props: Props) => {
       <td className={tdStyle}>{latestAnnouncement.title}</td>
       <td className={tdStyle}>{latestAnnouncement.createdAt}</td>
       <td className={tdStyle}>
-        <button>
+        <button onClick={handleClickFavorite}>
           <Star width={20} height={20} fill="#F9CC15" />
         </button>
       </td>

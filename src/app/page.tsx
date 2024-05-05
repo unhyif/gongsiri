@@ -20,6 +20,7 @@ import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { House } from '@/types/house';
 import HouseTable from '@components/home/HouseTable/HouseTable';
 import HouseTableUpdatedDate from '@components/home/HouseTableUpdatedDate/HouseTableUpdatedDate';
+import { sortHouseList } from '@utils/house';
 
 export const dynamic = 'force-dynamic';
 
@@ -31,7 +32,7 @@ export default async function Home() {
     TableName: process.env.HOUSE_TABLE,
   });
 
-  const { Items: houses } = (await docClient.send(
+  const { Items: houseList } = (await docClient.send(
     houseListScanCommand
   )) as unknown as ListResponse<ScanCommandOutput, House[]>;
 
@@ -59,7 +60,7 @@ export default async function Home() {
 
         <HouseTableUpdatedDate updatedAt={updatedAt} />
         <div className={tableWrapperStyle}>
-          <HouseTable houses={houses} />
+          <HouseTable houseList={sortHouseList(houseList)} />
         </div>
       </main>
 
