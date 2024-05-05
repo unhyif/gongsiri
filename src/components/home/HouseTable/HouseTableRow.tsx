@@ -11,7 +11,7 @@ interface Props {
   house: House;
 }
 
-export const HouseTableRow = (props: Props) => {
+const HouseTableRow = (props: Props) => {
   const { id, area, name, shUrl, url, announcementUrl, latestAnnouncement } =
     props.house;
 
@@ -42,3 +42,5 @@ export const HouseTableRow = (props: Props) => {
     </tr>
   );
 };
+
+export default HouseTableRow;

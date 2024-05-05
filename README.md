@@ -1,6 +1,6 @@
 # Gongsiri (WIP 🚧)
 
-> 동적 크롤링과 LLM을 활용한 SH 청년안심주택 공실 안내 서비스
+> SH 청년안심주택 공실 안내 서비스
 
 [https://gongsiri.vercel.app/](https://gongsiri.vercel.app/)
 

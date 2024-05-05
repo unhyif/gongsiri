@@ -13,12 +13,11 @@ import {
   tableWrapperStyle,
   titleStyle,
   titleWrapperStyle,
-  updatedAtStyle,
 } from './page.css';
 
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { House } from '@/types/house';
-import { HouseTable } from '@components/home/HouseTable';
+import HouseTable from '@components/home/HouseTable/HouseTable';
 
 export const dynamic = 'force-dynamic';
 
@@ -42,14 +41,11 @@ export default async function Home() {
     AttributesToGet: ['value'],
   });
 
-  const { Item: updatedAtObj } = (await docClient.send(
+  const {
+    Item: { value: updatedAt },
+  } = (await docClient.send(
     houseListUpdatedAtGetCommand
   )) as unknown as ItemResponse<GetCommandOutput, { value: number }>;
-
-  const updatedAt = new Intl.DateTimeFormat('ko', {
-    dateStyle: 'full',
-    timeStyle: 'medium',
-  }).format(updatedAtObj.value);
 
   return (
     <>
@@ -60,8 +56,7 @@ export default async function Home() {
         </div>
 
         <div className={tableWrapperStyle}>
-          <p className={updatedAtStyle}>최근 업데이트: {updatedAt}</p>
-          <HouseTable houses={houses} />
+          <HouseTable houses={houses} updatedAt={updatedAt} />
         </div>
       </main>
 

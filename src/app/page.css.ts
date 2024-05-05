@@ -21,14 +21,10 @@ export const descriptionStyle = style({
 });
 
 export const tableWrapperStyle = style({
-  width: 'fit-content',
-});
-
-export const updatedAtStyle = style({
-  fontSize: '1.4rem',
-  color: vars.color.gray,
-  textAlign: 'right',
-  margin: '4rem 0 1.6rem 0',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1.6rem',
+  marginTop: '4rem',
 });
 
 export const footerStyle = style({
