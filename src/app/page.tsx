@@ -19,6 +19,7 @@ import {
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { House } from '@/types/house';
 import HouseTable from '@components/home/HouseTable/HouseTable';
+import HouseTableUpdatedDate from '@components/home/HouseTableUpdatedDate/HouseTableUpdatedDate';
 
 export const dynamic = 'force-dynamic';
 
@@ -56,8 +57,9 @@ export default async function Home() {
           <p className={descriptionStyle}>SH 청년안심주택 공실 안내 서비스</p>
         </div>
 
+        <HouseTableUpdatedDate updatedAt={updatedAt} />
         <div className={tableWrapperStyle}>
-          <HouseTable houses={houses} updatedAt={updatedAt} />
+          <HouseTable houses={houses} />
         </div>
       </main>
 

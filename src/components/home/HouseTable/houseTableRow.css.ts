@@ -12,7 +12,7 @@ export const tdStyle = style({
 export const homePageTdStyle = style([
   tdStyle,
   {
-    whiteSpace: 'pre-wrap',
+    whiteSpace: 'pre',
   },
 ]);
 

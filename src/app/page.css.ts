@@ -29,10 +29,7 @@ export const descriptionStyle = style({
 });
 
 export const tableWrapperStyle = style({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '1.6rem',
-  marginTop: '4rem',
+  overflowX: 'auto',
 });
 
 export const footerStyle = style({
