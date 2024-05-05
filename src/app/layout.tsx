@@ -13,6 +13,10 @@ const pretendard = localFont({
 export const metadata: Metadata = {
   title: 'Gongsiri',
   description: 'SH 청년안심주택 공실 안내 서비스',
+  openGraph: {
+    title: 'Gongsiri',
+    description: 'SH 청년안심주택 최신 공실 확인하기 ✨',
+  },
 };
 
 export default function RootLayout({
