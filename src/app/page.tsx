@@ -5,7 +5,7 @@ import {
   ScanCommand,
   ScanCommandOutput,
 } from '@aws-sdk/lib-dynamodb';
-import FeatureItem, { Feature } from '@components/home/HouseTable/FeatureItem';
+import FeatureItem, { Feature } from '@components/home/FeatureItem/FeatureItem';
 import { ItemResponse, ListResponse } from '@/types/database';
 import {
   contactStyle,

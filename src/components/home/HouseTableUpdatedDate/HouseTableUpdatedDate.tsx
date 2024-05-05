@@ -14,6 +14,8 @@ const HouseTableUpdatedDate = (props: Props) => {
     timeStyle: 'medium',
   }).format(updatedAt);
 
+  console.log(updatedDate);
+
   return (
     <p className={updatedDateStyle} suppressHydrationWarning>
       최근 업데이트: {updatedDate}
