@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Gongsiri',
     description: 'SH 청년안심주택 최신 공실 확인하기 ✨',
+    url: 'https://gongsiri.vercel.app/',
   },
 };
 
