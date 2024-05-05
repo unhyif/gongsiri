@@ -1,4 +1,6 @@
 import {
+  backgroundColor,
+  favoriteBtnStyle,
   homePageTdStyle,
   linkStyle,
   tdStyle,
@@ -6,7 +8,9 @@ import {
 } from './houseTableRow.css';
 
 import { HouseCell } from '@/types/house';
-import Star from '@assets/svgs/star_filled.svg';
+import StarFilled from '@assets/svgs/star_filled.svg';
+import StarUnfilled from '@assets/svgs/star_unfilled.svg';
+import { assignInlineVars } from '@vanilla-extract/dynamic';
 
 interface Props {
   house: HouseCell;
@@ -30,7 +34,12 @@ const HouseTableRow = (props: Props) => {
   const handleClickFavorite = () => onClickFavorite(house.id);
 
   return (
-    <tr className={trStyle} key={id}>
+    <tr
+      className={trStyle}
+      style={assignInlineVars({
+        [backgroundColor]: isFavorite ? '#F1FDEB' : null,
+      })}
+    >
       <td className={tdStyle}>{area}</td>
       <td className={tdStyle}>{name}</td>
       <td className={`${tdStyle} ${homePageTdStyle}`}>
@@ -53,8 +62,12 @@ const HouseTableRow = (props: Props) => {
       <td className={tdStyle}>{latestAnnouncement.title}</td>
       <td className={tdStyle}>{latestAnnouncement.createdAt}</td>
       <td className={tdStyle}>
-        <button onClick={handleClickFavorite}>
-          <Star width={20} height={20} fill="#F9CC15" />
+        <button className={favoriteBtnStyle} onClick={handleClickFavorite}>
+          {isFavorite ? (
+            <StarFilled width={20} height={20} fill="#F9CC15" />
+          ) : (
+            <StarUnfilled width={20} height={20} fill="#F9CC15" />
+          )}
         </button>
       </td>
     </tr>

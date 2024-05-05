@@ -10,7 +10,19 @@ export const useHouses = (params: { houseList: House[] }) => {
     houseList.map(house => ({ ...house, isFavorite: false }))
   );
 
-  const toggleFavorite = (houseId: number) =>
+  const favoriteHouseIds = JSON.parse(
+    localStorage.getItem(FAVORITE_HOUSE_IDS_KEY) ?? '[]'
+  );
+
+  const saveFavoriteHouseId = (houseId: number) =>
+    localStorage.setItem(
+      FAVORITE_HOUSE_IDS_KEY,
+      JSON.stringify([...favoriteHouseIds, houseId])
+    );
+
+  const toggleFavorite = (houseId: number) => {
+    saveFavoriteHouseId(houseId);
+
     setHouses(prev =>
       prev.map(house =>
         house.id === houseId
@@ -18,12 +30,9 @@ export const useHouses = (params: { houseList: House[] }) => {
           : house
       )
     );
+  };
 
   useEffect(() => {
-    const favoriteHouseIds = JSON.parse(
-      localStorage.getItem(FAVORITE_HOUSE_IDS_KEY) ?? '[]'
-    );
-
     setHouses(prev =>
       prev.map(house => ({
         ...house,
