@@ -13,6 +13,14 @@ export const containerStyle = style([
   },
 ]);
 
+export const contactStyle = style({
+  color: vars.color.main,
+  fontSize: '1.4rem',
+  fontWeight: 500,
+  textAlign: 'right',
+  marginBottom: '4rem',
+});
+
 export const titleWrapperStyle = style({
   display: 'flex',
   flexDirection: 'column',
@@ -34,16 +42,16 @@ export const tableWrapperStyle = style({
 
 export const footerStyle = style({
   background: vars.color.lightGray,
-  color: vars.color.gray,
 });
 
 export const footerInsideStyle = style([
   layoutStyle,
   {
     height: '8.8rem',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     padding: '0 2.4rem',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: vars.color.gray,
   },
 ]);

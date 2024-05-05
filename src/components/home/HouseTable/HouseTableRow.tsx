@@ -1,7 +1,10 @@
 import {
   backgroundColor,
+  createdAtTdStyle,
   favoriteBtnStyle,
-  homePageTdStyle,
+  homepageLiStyle,
+  homepageTdStyle,
+  homepageUlStyle,
   linkStyle,
   tdStyle,
   trStyle,
@@ -21,7 +24,6 @@ const HouseTableRow = (props: Props) => {
   const { house, onClickFavorite } = props;
 
   const {
-    id,
     area,
     name,
     shUrl,
@@ -41,27 +43,6 @@ const HouseTableRow = (props: Props) => {
         [backgroundColor]: isFavorite ? '#F1FDEB' : null,
       })}
     >
-      <td className={tdStyle}>{area}</td>
-      <td className={tdStyle}>{name}</td>
-      <td className={`${tdStyle} ${homePageTdStyle}`}>
-        <a className={linkStyle} href={shUrl} target="_blank">
-          SH
-        </a>
-        {'  '}
-        {url && (
-          <a className={linkStyle} href={url} target="_blank">
-            Official
-          </a>
-        )}
-        {'  '}
-        {announcementUrl && (
-          <a className={linkStyle} href={announcementUrl} target="_blank">
-            공지사항
-          </a>
-        )}
-      </td>
-      <td className={tdStyle}>{latestAnnouncement.title}</td>
-      <td className={tdStyle}>{latestAnnouncement.createdAt}</td>
       <td className={tdStyle}>
         <button className={favoriteBtnStyle} onClick={handleClickFavorite}>
           {isFavorite ? (
@@ -71,6 +52,38 @@ const HouseTableRow = (props: Props) => {
           )}
         </button>
       </td>
+
+      <td className={tdStyle}>{area}</td>
+      <td className={tdStyle}>{name}</td>
+
+      <td className={homepageTdStyle}>
+        <ul className={homepageUlStyle}>
+          <li className={homepageLiStyle}>
+            <a className={linkStyle} href={shUrl} target="_blank">
+              SH
+            </a>
+          </li>
+
+          {url && (
+            <li className={homepageLiStyle}>
+              <a className={linkStyle} href={url} target="_blank">
+                Official
+              </a>
+            </li>
+          )}
+
+          {announcementUrl && (
+            <li className={homepageLiStyle}>
+              <a className={linkStyle} href={announcementUrl} target="_blank">
+                공지사항
+              </a>
+            </li>
+          )}
+        </ul>
+      </td>
+
+      <td className={tdStyle}>{latestAnnouncement.title}</td>
+      <td className={createdAtTdStyle}>{latestAnnouncement.createdAt}</td>
     </tr>
   );
 };

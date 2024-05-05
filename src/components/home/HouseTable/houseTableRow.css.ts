@@ -10,19 +10,39 @@ export const trStyle = style({
 });
 
 export const tdStyle = style({
-  padding: '1.2rem 1.6rem',
+  padding: '1rem 1.4rem',
 });
 
-export const homePageTdStyle = style([
+export const homepageTdStyle = style([
   tdStyle,
   {
-    whiteSpace: 'pre',
+    textAlign: 'left',
+    whiteSpace: 'nowrap',
   },
 ]);
 
+export const homepageUlStyle = style({
+  listStylePosition: 'inside',
+});
+
+export const homepageLiStyle = style({
+  '::marker': {
+    content: '📍 ',
+  },
+});
+
 export const linkStyle = style({
   color: vars.color.main,
+
+  ':hover': { textDecoration: 'underline' },
 });
+
+export const createdAtTdStyle = style([
+  tdStyle,
+  {
+    whiteSpace: 'nowrap',
+  },
+]);
 
 export const favoriteBtnStyle = style({
   padding: '0.8rem',

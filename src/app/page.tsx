@@ -7,6 +7,7 @@ import {
 } from '@aws-sdk/lib-dynamodb';
 import { ItemResponse, ListResponse } from '@/types/database';
 import {
+  contactStyle,
   containerStyle,
   descriptionStyle,
   footerInsideStyle,
@@ -15,12 +16,12 @@ import {
   titleStyle,
   titleWrapperStyle,
 } from './page.css';
-import { sortHousesByAreaAndName } from '@utils/house';
 
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { House } from '@/types/house';
 import HouseTable from '@components/home/HouseTable/HouseTable';
 import HouseTableUpdatedDate from '@components/home/HouseTableUpdatedDate/HouseTableUpdatedDate';
+import { sortHousesByAreaAndName } from '@utils/house';
 
 export const dynamic = 'force-dynamic';
 
@@ -53,11 +54,14 @@ export default async function Home() {
   return (
     <>
       <main className={containerStyle}>
+        <div className={contactStyle}>
+          <a href="mailto:unhyif@gmail.com">💌 개발자 문의</a>
+        </div>
+
         <div className={titleWrapperStyle}>
           <h1 className={titleStyle}>Gongsiri</h1>
           <p className={descriptionStyle}>SH 청년안심주택 공실 안내 서비스</p>
         </div>
-
         <HouseTableUpdatedDate updatedAt={updatedAt} />
         <div className={tableWrapperStyle}>
           <HouseTable houseList={sortHousesByAreaAndName(houseList)} />
@@ -67,7 +71,6 @@ export default async function Home() {
       <footer className={footerStyle}>
         <div className={footerInsideStyle}>
           <p>© 2024 Gongsiri. All rights reserved.</p>
-          <a href="mailto:unhyif@gmail.com">💌 Contact Developer</a>
         </div>
       </footer>
     </>
