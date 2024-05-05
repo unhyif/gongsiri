@@ -5,10 +5,12 @@ import {
   ScanCommand,
   ScanCommandOutput,
 } from '@aws-sdk/lib-dynamodb';
+import FeatureItem, { Feature } from '@components/home/HouseTable/FeatureItem';
 import { ItemResponse, ListResponse } from '@/types/database';
 import {
   contactStyle,
   descriptionStyle,
+  featureListStyle,
   footerInsideStyle,
   footerStyle,
   introStyle,
@@ -18,16 +20,38 @@ import {
   titleWrapperStyle,
 } from './page.css';
 
+import Clock from '@assets/svgs/clock.svg';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { House } from '@/types/house';
 import HouseTable from '@components/home/HouseTable/HouseTable';
 import HouseTableUpdatedDate from '@components/home/HouseTableUpdatedDate/HouseTableUpdatedDate';
+import Loading from '@assets/svgs/loading.svg';
+import Sparkle from '@assets/svgs/sparkle.svg';
 import { sortHousesByAreaAndName } from '@utils/house';
 
 export const dynamic = 'force-dynamic';
 
 const client = new DynamoDBClient({});
 const docClient = DynamoDBDocumentClient.from(client);
+
+const FEATURES: Feature[] = [
+  {
+    title: '평일 하루 4번 업데이트',
+    description: '9시 · 12시 · 15시 · 18시에 페이지 업데이트를 진행해요.',
+    Icon: Clock,
+  },
+  {
+    title: 'ChatGPT를 통한 공실 안내',
+    description:
+      'GPT-3.5 Turbo를 통해 최신 공지를 추려내고 있어요.\n현재 기술 수준에서는 오차가 있을 수 있어요.',
+    Icon: Sparkle,
+  },
+  {
+    title: '기기 간 즐겨찾기 연동 미지원',
+    description: '아직은 즐겨찾기한 주택이 다른 기기와 연동되지 않아요.',
+    Icon: Loading,
+  },
+];
 
 export default async function Home() {
   const houseListScanCommand = new ScanCommand({
@@ -56,14 +80,21 @@ export default async function Home() {
     <>
       <main className={mainStyle}>
         <div className={introStyle}>
-          <div className={contactStyle}>
-            <a href="mailto:unhyif@gmail.com">💌 개발자 문의</a>
-          </div>
+          <a className={contactStyle} href="mailto:unhyif@gmail.com">
+            💌 개발자 문의
+          </a>
 
           <div className={titleWrapperStyle}>
             <h1 className={titleStyle}>Gongsiri</h1>
             <p className={descriptionStyle}>SH 청년안심주택 공실 안내 서비스</p>
           </div>
+
+          <ul className={featureListStyle}>
+            {FEATURES.map(feature => (
+              <FeatureItem key={feature.title} {...feature} />
+            ))}
+          </ul>
+
           <HouseTableUpdatedDate updatedAt={updatedAt} />
         </div>
 

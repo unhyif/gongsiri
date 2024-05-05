@@ -24,6 +24,7 @@ const HouseTableRow = (props: Props) => {
   const { house, onClickFavorite } = props;
 
   const {
+    id,
     area,
     name,
     shUrl,
@@ -34,7 +35,7 @@ const HouseTableRow = (props: Props) => {
   } = house;
 
   const handleClickFavorite = () =>
-    onClickFavorite({ houseId: house.id, to: !house.isFavorite });
+    onClickFavorite({ houseId: id, to: !isFavorite });
 
   return (
     <tr

@@ -43,6 +43,19 @@ export const descriptionStyle = style({
   color: vars.color.gray,
 });
 
+export const featureListStyle = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  gap: '1.6rem',
+  marginTop: '1rem',
+
+  '@media': {
+    'screen and (max-width: 768px)': {
+      flexDirection: 'column',
+    },
+  },
+});
+
 export const tableWrapperStyle = style({
   overflowX: 'auto',
 });

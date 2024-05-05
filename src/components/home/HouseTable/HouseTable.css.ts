@@ -11,4 +11,5 @@ export const thStyle = style({
   color: 'white',
   padding: '1.2rem 1.6rem',
   fontWeight: 'inherit',
+  whiteSpace: 'nowrap',
 });
