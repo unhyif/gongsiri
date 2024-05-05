@@ -12,12 +12,15 @@ export const useHouses = (params: { houseList: House[] }) => {
     houseList.map(house => ({ ...house, isFavorite: false }))
   );
 
-  const favoriteHouseIds = JSON.parse(
-    localStorage.getItem(FAVORITE_HOUSE_IDS_KEY) ?? '[]'
-  ) as number[];
+  const getFavoriteHouseIds = () =>
+    JSON.parse(
+      localStorage.getItem(FAVORITE_HOUSE_IDS_KEY) ?? '[]'
+    ) as number[];
 
   const postHouseFavorite = (params: { houseId: number; to: boolean }) => {
     const { houseId, to } = params;
+
+    const favoriteHouseIds = getFavoriteHouseIds();
 
     localStorage.setItem(
       FAVORITE_HOUSE_IDS_KEY,
@@ -42,6 +45,7 @@ export const useHouses = (params: { houseList: House[] }) => {
   };
 
   useEffect(() => {
+    const favoriteHouseIds = getFavoriteHouseIds();
     if (!favoriteHouseIds.length) return;
 
     setHouses(prev => {
