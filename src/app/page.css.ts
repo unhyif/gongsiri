@@ -6,19 +6,26 @@ export const layoutStyle = style({
   margin: '0 auto',
 });
 
-export const containerStyle = style([
+export const mainStyle = style([
   layoutStyle,
   {
-    padding: '4.8rem 2.4rem',
+    padding: '4.8rem 0',
   },
 ]);
 
+export const introStyle = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '4rem',
+  padding: '0 2.4rem',
+  marginBottom: '1.6rem',
+});
+
 export const contactStyle = style({
   color: vars.color.main,
-  fontSize: '1.4rem',
+  fontSize: '1.5rem',
   fontWeight: 500,
-  textAlign: 'right',
-  marginBottom: '4rem',
+  alignSelf: 'flex-end',
 });
 
 export const titleWrapperStyle = style({

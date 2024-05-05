@@ -15,7 +15,7 @@ const HouseTable = (props: Props) => {
 
   const { houses, handleHouseFavorite } = useHouses({ houseList });
 
-  const TH_CELLS = ['', '지역', '이름', '홈페이지', '최근 공지', ''];
+  const TH_CELLS = ['지역', '이름', '최근 공지', '', '홈페이지', ''];
 
   return (
     <table className={tableStyle}>

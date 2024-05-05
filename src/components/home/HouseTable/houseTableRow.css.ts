@@ -33,6 +33,7 @@ export const homepageLiStyle = style({
 
 export const linkStyle = style({
   color: vars.color.main,
+  fontSize: '1.5rem',
 
   ':hover': { textDecoration: 'underline' },
 });
@@ -41,6 +42,7 @@ export const createdAtTdStyle = style([
   tdStyle,
   {
     whiteSpace: 'nowrap',
+    fontWeight: 600,
   },
 ]);
 

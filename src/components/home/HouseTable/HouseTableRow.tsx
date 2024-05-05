@@ -43,18 +43,10 @@ const HouseTableRow = (props: Props) => {
         [backgroundColor]: isFavorite ? '#F1FDEB' : null,
       })}
     >
-      <td className={tdStyle}>
-        <button className={favoriteBtnStyle} onClick={handleClickFavorite}>
-          {isFavorite ? (
-            <StarFilled width={20} height={20} fill="#F9CC15" />
-          ) : (
-            <StarUnfilled width={20} height={20} fill="#F9CC15" />
-          )}
-        </button>
-      </td>
-
       <td className={tdStyle}>{area}</td>
       <td className={tdStyle}>{name}</td>
+      <td className={createdAtTdStyle}>{latestAnnouncement.createdAt}</td>
+      <td className={tdStyle}>{latestAnnouncement.title}</td>
 
       <td className={homepageTdStyle}>
         <ul className={homepageUlStyle}>
@@ -67,7 +59,7 @@ const HouseTableRow = (props: Props) => {
           {url && (
             <li className={homepageLiStyle}>
               <a className={linkStyle} href={url} target="_blank">
-                Official
+                주택 Home
               </a>
             </li>
           )}
@@ -75,15 +67,22 @@ const HouseTableRow = (props: Props) => {
           {announcementUrl && (
             <li className={homepageLiStyle}>
               <a className={linkStyle} href={announcementUrl} target="_blank">
-                공지사항
+                주택 공지사항
               </a>
             </li>
           )}
         </ul>
       </td>
 
-      <td className={tdStyle}>{latestAnnouncement.title}</td>
-      <td className={createdAtTdStyle}>{latestAnnouncement.createdAt}</td>
+      <td className={tdStyle}>
+        <button className={favoriteBtnStyle} onClick={handleClickFavorite}>
+          {isFavorite ? (
+            <StarFilled width={20} height={20} fill="#F9CC15" />
+          ) : (
+            <StarUnfilled width={20} height={20} fill="#F9CC15" />
+          )}
+        </button>
+      </td>
     </tr>
   );
 };

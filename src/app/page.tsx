@@ -8,10 +8,11 @@ import {
 import { ItemResponse, ListResponse } from '@/types/database';
 import {
   contactStyle,
-  containerStyle,
   descriptionStyle,
   footerInsideStyle,
   footerStyle,
+  introStyle,
+  mainStyle,
   tableWrapperStyle,
   titleStyle,
   titleWrapperStyle,
@@ -53,16 +54,19 @@ export default async function Home() {
 
   return (
     <>
-      <main className={containerStyle}>
-        <div className={contactStyle}>
-          <a href="mailto:unhyif@gmail.com">💌 개발자 문의</a>
+      <main className={mainStyle}>
+        <div className={introStyle}>
+          <div className={contactStyle}>
+            <a href="mailto:unhyif@gmail.com">💌 개발자 문의</a>
+          </div>
+
+          <div className={titleWrapperStyle}>
+            <h1 className={titleStyle}>Gongsiri</h1>
+            <p className={descriptionStyle}>SH 청년안심주택 공실 안내 서비스</p>
+          </div>
+          <HouseTableUpdatedDate updatedAt={updatedAt} />
         </div>
 
-        <div className={titleWrapperStyle}>
-          <h1 className={titleStyle}>Gongsiri</h1>
-          <p className={descriptionStyle}>SH 청년안심주택 공실 안내 서비스</p>
-        </div>
-        <HouseTableUpdatedDate updatedAt={updatedAt} />
         <div className={tableWrapperStyle}>
           <HouseTable houseList={sortHousesByAreaAndName(houseList)} />
         </div>
