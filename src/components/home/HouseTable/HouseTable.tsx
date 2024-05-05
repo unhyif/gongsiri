@@ -20,7 +20,7 @@ const HouseTable = (props: Props) => {
     timeStyle: 'medium',
   }).format(props.updatedAt);
 
-  const THEAD_CELLS = ['지역', '이름', '홈페이지', '최근 공지', '', ''];
+  const TH_CELLS = ['지역', '이름', '홈페이지', '최근 공지', '', ''];
 
   return (
     <>
@@ -31,7 +31,7 @@ const HouseTable = (props: Props) => {
       <table className={tableStyle}>
         <thead>
           <tr>
-            {THEAD_CELLS.map((cell, index) => (
+            {TH_CELLS.map((cell, index) => (
               <th className={thStyle} key={cell + index}>
                 {cell}
               </th>

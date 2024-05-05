@@ -9,6 +9,7 @@ import { ItemResponse, ListResponse } from '@/types/database';
 import {
   containerStyle,
   descriptionStyle,
+  footerInsideStyle,
   footerStyle,
   tableWrapperStyle,
   titleStyle,
@@ -61,8 +62,10 @@ export default async function Home() {
       </main>
 
       <footer className={footerStyle}>
-        <p>© 2024 Gongsiri. All rights reserved.</p>
-        <a href="mailto:unhyif@gmail.com">💌 Contact Developer</a>
+        <div className={footerInsideStyle}>
+          <p>© 2024 Gongsiri. All rights reserved.</p>
+          <a href="mailto:unhyif@gmail.com">💌 Contact Developer</a>
+        </div>
       </footer>
     </>
   );

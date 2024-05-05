@@ -1,10 +1,14 @@
 import '@styles/globals.css';
 
-import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
+import localFont from 'next/font/local';
 import { themeClass } from '@styles/theme.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const pretendard = localFont({
+  src: '../styles/fonts/PretendardVariable.woff2',
+  display: 'swap',
+  weight: '45 920',
+});
 
 export const metadata: Metadata = {
   title: 'Gongsiri',
@@ -18,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${inter.className} ${themeClass}`}>{children}</body>
+      <body className={`${pretendard.className} ${themeClass}`}>
+        {children}
+      </body>
     </html>
   );
 }
