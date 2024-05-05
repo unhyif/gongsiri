@@ -1,6 +1,6 @@
-import { House } from '../types/house';
+import { House, HouseCell } from '../types/house';
 
-export const sortHouseList = (houses: House[]) =>
+export const sortHousesByAreaAndName = (houses: House[]) =>
   houses.sort((a, b) => {
     const areaComparison = a.area.localeCompare(b.area);
     if (areaComparison !== 0) {
@@ -8,3 +8,8 @@ export const sortHouseList = (houses: House[]) =>
     }
     return a.name.localeCompare(b.name);
   });
+
+export const sortHousesByIsFavorite = (houses: HouseCell[]) =>
+  houses.sort((a, b) =>
+    a.isFavorite === b.isFavorite ? 0 : a.isFavorite ? -1 : 1
+  );

@@ -15,12 +15,12 @@ import {
   titleStyle,
   titleWrapperStyle,
 } from './page.css';
+import { sortHousesByAreaAndName } from '@utils/house';
 
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { House } from '@/types/house';
 import HouseTable from '@components/home/HouseTable/HouseTable';
 import HouseTableUpdatedDate from '@components/home/HouseTableUpdatedDate/HouseTableUpdatedDate';
-import { sortHouseList } from '@utils/house';
 
 export const dynamic = 'force-dynamic';
 
@@ -60,7 +60,7 @@ export default async function Home() {
 
         <HouseTableUpdatedDate updatedAt={updatedAt} />
         <div className={tableWrapperStyle}>
-          <HouseTable houseList={sortHouseList(houseList)} />
+          <HouseTable houseList={sortHousesByAreaAndName(houseList)} />
         </div>
       </main>
 

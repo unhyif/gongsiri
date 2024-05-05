@@ -14,7 +14,7 @@ import { assignInlineVars } from '@vanilla-extract/dynamic';
 
 interface Props {
   house: HouseCell;
-  onClickFavorite: (houseId: number) => void;
+  onClickFavorite: (params: { houseId: number; to: boolean }) => void;
 }
 
 const HouseTableRow = (props: Props) => {
@@ -31,7 +31,8 @@ const HouseTableRow = (props: Props) => {
     isFavorite,
   } = house;
 
-  const handleClickFavorite = () => onClickFavorite(house.id);
+  const handleClickFavorite = () =>
+    onClickFavorite({ houseId: house.id, to: !house.isFavorite });
 
   return (
     <tr
