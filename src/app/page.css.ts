@@ -18,7 +18,6 @@ export const introStyle = style({
   flexDirection: 'column',
   gap: '4rem',
   padding: '0 2.4rem',
-  marginBottom: '1.6rem',
 });
 
 export const contactStyle = style({
@@ -65,6 +64,11 @@ export const updatedDateStyle = style({
 
 export const tableWrapperStyle = style({
   overflowX: 'auto',
+  margin: '1.6rem 0 4rem 0',
+});
+
+export const bottomAdfitArea = style({
+  padding: '0 2.4rem',
 });
 
 export const footerStyle = style({

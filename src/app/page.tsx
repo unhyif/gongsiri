@@ -8,13 +8,13 @@ import {
 import FeatureItem, { Feature } from '@components/home/FeatureItem/FeatureItem';
 import { ItemResponse, ListResponse } from '@/types/database';
 import {
+  bottomAdfitArea,
   contactStyle,
   descriptionStyle,
   featureListStyle,
   footerInsideStyle,
   footerStyle,
   introStyle,
-  layoutStyle,
   mainStyle,
   tableWrapperStyle,
   titleStyle,
@@ -29,7 +29,9 @@ import HouseTable from '@components/home/HouseTable/HouseTable';
 import Loading from '@assets/svgs/loading.svg';
 import Sparkle from '@assets/svgs/sparkle.svg';
 import { formatInTimeZone } from 'date-fns-tz';
+import { headers } from 'next/headers';
 import { sortHousesByAreaAndName } from '@utils/house';
+import { userAgent } from 'next/server';
 
 export const dynamic = 'force-dynamic';
 
@@ -56,6 +58,8 @@ const FEATURES: Feature[] = [
 ];
 
 export default async function Home() {
+  const isMobile = userAgent({ headers: headers() }).device.type === 'mobile';
+
   const houseListScanCommand = new ScanCommand({
     TableName: process.env.HOUSE_TABLE,
   });
@@ -103,23 +107,41 @@ export default async function Home() {
             ))}
           </ul>
 
+          {isMobile ? (
+            <ins
+              className="kakao_ad_area"
+              style={{ display: 'none', width: '100%' }}
+              data-ad-unit={process.env.ADFIT_MOBILE_UNIT}
+              data-ad-width="320"
+              data-ad-height="100"
+            />
+          ) : (
+            <ins
+              className="kakao_ad_area"
+              style={{ display: 'none', width: '100%' }}
+              data-ad-unit={process.env.ADFIT_PC_UNIT}
+              data-ad-width="728"
+              data-ad-height="90"
+            />
+          )}
+
           <p className={updatedDateStyle}>최근 업데이트: {updatedDate}</p>
         </div>
 
         <div className={tableWrapperStyle}>
           <HouseTable houseList={sortHousesByAreaAndName(houseList)} />
         </div>
-      </main>
 
-      <div className={layoutStyle}>
-        <ins
-          className="kakao_ad_area"
-          style={{ display: 'none' }}
-          data-ad-unit="DAN-JNt7xGHl5h0Mfo2T"
-          data-ad-width="300"
-          data-ad-height="250"
-        />
-      </div>
+        <div className={bottomAdfitArea}>
+          <ins
+            className="kakao_ad_area"
+            style={{ display: 'none' }}
+            data-ad-unit={process.env.ADFIT_BASIC_UNIT}
+            data-ad-width="300"
+            data-ad-height="250"
+          />
+        </div>
+      </main>
 
       <footer className={footerStyle}>
         <div className={footerInsideStyle}>

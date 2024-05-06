@@ -33,7 +33,6 @@ export default function RootLayout({
         <script
           async
           type="text/javascript"
-          charSet="utf-8"
           src="https://t1.daumcdn.net/kas/static/ba.min.js"
         />
       </body>
