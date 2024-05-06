@@ -1,6 +1,8 @@
 import '@styles/globals.css';
 
+import GTMProvider from '@components/layout/GTMProvider';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import localFont from 'next/font/local';
 import { themeClass } from '@styles/theme.css';
 
@@ -29,12 +31,14 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`${pretendard.className} ${themeClass}`}>
-        {children}
-        <script
-          async
-          type="text/javascript"
-          src="https://t1.daumcdn.net/kas/static/ba.min.js"
-        />
+        <GTMProvider>
+          {children}
+          <Script
+            async
+            type="text/javascript"
+            src="https://t1.daumcdn.net/kas/static/ba.min.js"
+          />
+        </GTMProvider>
       </body>
     </html>
   );
