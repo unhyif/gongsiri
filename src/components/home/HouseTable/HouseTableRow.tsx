@@ -76,7 +76,11 @@ const HouseTableRow = (props: Props) => {
       </td>
 
       <td className={tdStyle}>
-        <button className={favoriteBtnStyle} onClick={handleClickFavorite}>
+        <button
+          className={`${favoriteBtnStyle} favoriteBtn`}
+          data-id={id}
+          onClick={handleClickFavorite}
+        >
           {isFavorite ? (
             <StarFilled width={20} height={20} fill="#F9CC15" />
           ) : (
