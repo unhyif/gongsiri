@@ -6,12 +6,6 @@ import Script from 'next/script';
 import localFont from 'next/font/local';
 import { themeClass } from '@styles/theme.css';
 
-const pretendard = localFont({
-  src: '../styles/fonts/PretendardVariable.woff2',
-  display: 'swap',
-  weight: '45 920',
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL('https://gongsiri.vercel.app/'),
   title: 'Gongsiri',
@@ -28,6 +22,12 @@ export const metadata: Metadata = {
     },
   },
 };
+
+const pretendard = localFont({
+  src: '../styles/fonts/PretendardVariable.woff2',
+  display: 'swap',
+  weight: '45 920',
+});
 
 export default function RootLayout({
   children,
