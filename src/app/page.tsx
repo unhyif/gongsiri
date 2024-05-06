@@ -18,15 +18,16 @@ import {
   tableWrapperStyle,
   titleStyle,
   titleWrapperStyle,
+  updatedDateStyle,
 } from './page.css';
 
 import Clock from '@assets/svgs/clock.svg';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { House } from '@/types/house';
 import HouseTable from '@components/home/HouseTable/HouseTable';
-import HouseTableUpdatedDate from '@components/home/HouseTableUpdatedDate/HouseTableUpdatedDate';
 import Loading from '@assets/svgs/loading.svg';
 import Sparkle from '@assets/svgs/sparkle.svg';
+import { formatInTimeZone } from 'date-fns-tz';
 import { sortHousesByAreaAndName } from '@utils/house';
 
 export const dynamic = 'force-dynamic';
@@ -76,6 +77,12 @@ export default async function Home() {
     houseListUpdatedAtGetCommand
   )) as unknown as ItemResponse<GetCommandOutput, { value: number }>;
 
+  const updatedDate = formatInTimeZone(
+    updatedAt,
+    'Asia/Seoul',
+    'yyyy년 M월 d일 H:mm'
+  );
+
   return (
     <>
       <main className={mainStyle}>
@@ -95,7 +102,7 @@ export default async function Home() {
             ))}
           </ul>
 
-          <HouseTableUpdatedDate updatedAt={updatedAt} />
+          <p className={updatedDateStyle}>최근 업데이트: {updatedDate}</p>
         </div>
 
         <div className={tableWrapperStyle}>

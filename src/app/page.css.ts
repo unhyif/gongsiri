@@ -52,8 +52,15 @@ export const featureListStyle = style({
   '@media': {
     'screen and (max-width: 768px)': {
       flexDirection: 'column',
+      alignItems: 'center',
     },
   },
+});
+
+export const updatedDateStyle = style({
+  fontSize: '1.4rem',
+  color: vars.color.midGray,
+  alignSelf: 'flex-end',
 });
 
 export const tableWrapperStyle = style({
