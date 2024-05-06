@@ -14,6 +14,7 @@ import {
   footerInsideStyle,
   footerStyle,
   introStyle,
+  layoutStyle,
   mainStyle,
   tableWrapperStyle,
   titleStyle,
@@ -109,6 +110,16 @@ export default async function Home() {
           <HouseTable houseList={sortHousesByAreaAndName(houseList)} />
         </div>
       </main>
+
+      <div className={layoutStyle}>
+        <ins
+          className="kakao_ad_area"
+          style={{ display: 'none' }}
+          data-ad-unit="DAN-JNt7xGHl5h0Mfo2T"
+          data-ad-width="300"
+          data-ad-height="250"
+        />
+      </div>
 
       <footer className={footerStyle}>
         <div className={footerInsideStyle}>

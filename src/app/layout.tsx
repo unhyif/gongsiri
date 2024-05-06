@@ -30,6 +30,12 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`${pretendard.className} ${themeClass}`}>
         {children}
+        <script
+          async
+          type="text/javascript"
+          charSet="utf-8"
+          src="https://t1.daumcdn.net/kas/static/ba.min.js"
+        />
       </body>
     </html>
   );
