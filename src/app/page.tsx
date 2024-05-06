@@ -112,7 +112,7 @@ export default async function Home() {
             {isMobile ? (
               <ins
                 className="kakao_ad_area"
-                style={{ display: 'none', width: '100%' }}
+                style={{ display: 'none' }}
                 data-ad-unit={process.env.ADFIT_MOBILE_UNIT}
                 data-ad-width="320"
                 data-ad-height="100"
@@ -120,7 +120,7 @@ export default async function Home() {
             ) : (
               <ins
                 className="kakao_ad_area"
-                style={{ display: 'none', width: '100%' }}
+                style={{ display: 'none' }}
                 data-ad-unit={process.env.ADFIT_PC_UNIT}
                 data-ad-width="728"
                 data-ad-height="90"
