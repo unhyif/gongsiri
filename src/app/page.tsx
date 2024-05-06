@@ -31,6 +31,7 @@ import Loading from '@assets/svgs/loading.svg';
 import Sparkle from '@assets/svgs/sparkle.svg';
 import { formatInTimeZone } from 'date-fns-tz';
 import { headers } from 'next/headers';
+import { ko } from 'date-fns/locale/ko';
 import { sortHousesByAreaAndName } from '@utils/house';
 import { userAgent } from 'next/server';
 
@@ -86,7 +87,8 @@ export default async function Home() {
   const updatedDate = formatInTimeZone(
     updatedAt,
     'Asia/Seoul',
-    'yyyy년 M월 d일 H:mm'
+    'yyyy년 M월 d일 (E) HH:mm',
+    { locale: ko }
   );
 
   return (
