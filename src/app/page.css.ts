@@ -56,6 +56,10 @@ export const featureListStyle = style({
   },
 });
 
+export const topAdfitArea = style({
+  alignSelf: 'center',
+});
+
 export const updatedDateStyle = style({
   fontSize: '1.4rem',
   color: vars.color.midGray,

@@ -19,6 +19,7 @@ import {
   tableWrapperStyle,
   titleStyle,
   titleWrapperStyle,
+  topAdfitArea,
   updatedDateStyle,
 } from './page.css';
 
@@ -107,23 +108,25 @@ export default async function Home() {
             ))}
           </ul>
 
-          {isMobile ? (
-            <ins
-              className="kakao_ad_area"
-              style={{ display: 'none', width: '100%' }}
-              data-ad-unit={process.env.ADFIT_MOBILE_UNIT}
-              data-ad-width="320"
-              data-ad-height="100"
-            />
-          ) : (
-            <ins
-              className="kakao_ad_area"
-              style={{ display: 'none', width: '100%' }}
-              data-ad-unit={process.env.ADFIT_PC_UNIT}
-              data-ad-width="728"
-              data-ad-height="90"
-            />
-          )}
+          <div className={topAdfitArea}>
+            {isMobile ? (
+              <ins
+                className="kakao_ad_area"
+                style={{ display: 'none', width: '100%' }}
+                data-ad-unit={process.env.ADFIT_MOBILE_UNIT}
+                data-ad-width="320"
+                data-ad-height="100"
+              />
+            ) : (
+              <ins
+                className="kakao_ad_area"
+                style={{ display: 'none', width: '100%' }}
+                data-ad-unit={process.env.ADFIT_PC_UNIT}
+                data-ad-width="728"
+                data-ad-height="90"
+              />
+            )}
+          </div>
 
           <p className={updatedDateStyle}>최근 업데이트: {updatedDate}</p>
         </div>
