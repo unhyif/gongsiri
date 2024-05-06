@@ -95,7 +95,10 @@ export default async function Home() {
     <>
       <main className={mainStyle}>
         <div className={introStyle}>
-          <a className={contactStyle} href="mailto:unhyif@gmail.com">
+          <a
+            className={contactStyle}
+            href="mailto:gongsiri.developer@gmail.com"
+          >
             💌 개발자 문의
           </a>
 
