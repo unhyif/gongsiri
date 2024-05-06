@@ -21,6 +21,12 @@ export const metadata: Metadata = {
     description: 'SH 청년안심주택 최신 공실 확인하기',
     url: 'https://gongsiri.vercel.app/',
   },
+  verification: {
+    google: process.env.GOOGLE_SEARCH_CONSOLE_ID,
+    other: {
+      'naver-site-verification': process.env.NAVER_SEARCH_ADVISOR_ID ?? '',
+    },
+  },
 };
 
 export default function RootLayout({
