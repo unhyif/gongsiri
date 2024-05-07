@@ -97,9 +97,10 @@ export default async function Home() {
         <div className={introStyle}>
           <a
             className={contactStyle}
-            href="mailto:gongsiri.developer@gmail.com"
+            href="https://forms.gle/SYQ6MWoKET2nMhXo8"
+            target="_blank"
           >
-            💌 개발자 문의
+            💌 서비스 문의
           </a>
 
           <div className={titleWrapperStyle}>
