@@ -27,6 +27,7 @@ export const homepageUlStyle = style({
 
 export const homepageLiStyle = style({
   '::marker': {
+    // TODO
     content: '📍 ',
   },
 });
