@@ -8,7 +8,6 @@ import {
 import FeatureItem, { Feature } from '@components/home/FeatureItem/FeatureItem';
 import { ItemResponse, ListResponse } from '@/types/database';
 import {
-  bottomAdfitArea,
   contactStyle,
   descriptionStyle,
   featureListStyle,
@@ -19,7 +18,6 @@ import {
   tableWrapperStyle,
   titleStyle,
   titleWrapperStyle,
-  topAdfitArea,
   updatedDateStyle,
 } from './page.css';
 
@@ -30,10 +28,8 @@ import HouseTable from '@components/home/HouseTable/HouseTable';
 import Loading from '@assets/svgs/loading.svg';
 import Sparkle from '@assets/svgs/sparkle.svg';
 import { formatInTimeZone } from 'date-fns-tz';
-import { headers } from 'next/headers';
 import { ko } from 'date-fns/locale/ko';
 import { sortHousesByAreaAndName } from '@utils/house';
-import { userAgent } from 'next/server';
 
 export const dynamic = 'force-dynamic';
 
@@ -60,8 +56,6 @@ const FEATURES: Feature[] = [
 ];
 
 export default async function Home() {
-  const isMobile = userAgent({ headers: headers() }).device.type === 'mobile';
-
   const houseListScanCommand = new ScanCommand({
     TableName: process.env.HOUSE_TABLE,
   });
@@ -114,41 +108,11 @@ export default async function Home() {
             ))}
           </ul>
 
-          <div className={topAdfitArea}>
-            {isMobile ? (
-              <ins
-                className="kakao_ad_area"
-                style={{ display: 'none' }}
-                data-ad-unit={process.env.ADFIT_MOBILE_UNIT}
-                data-ad-width="320"
-                data-ad-height="100"
-              />
-            ) : (
-              <ins
-                className="kakao_ad_area"
-                style={{ display: 'none' }}
-                data-ad-unit={process.env.ADFIT_PC_UNIT}
-                data-ad-width="728"
-                data-ad-height="90"
-              />
-            )}
-          </div>
-
           <p className={updatedDateStyle}>최근 업데이트: {updatedDate}</p>
         </div>
 
         <div className={tableWrapperStyle}>
           <HouseTable houseList={sortHousesByAreaAndName(houseList)} />
-        </div>
-
-        <div className={bottomAdfitArea}>
-          <ins
-            className="kakao_ad_area"
-            style={{ display: 'none' }}
-            data-ad-unit={process.env.ADFIT_BASIC_UNIT}
-            data-ad-width="300"
-            data-ad-height="250"
-          />
         </div>
       </main>
 
