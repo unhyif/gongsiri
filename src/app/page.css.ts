@@ -56,6 +56,10 @@ export const featureListStyle = style({
   },
 });
 
+export const topAdfitArea = style({
+  alignSelf: 'center',
+});
+
 export const updatedDateStyle = style({
   fontSize: '1.4rem',
   color: vars.color.midGray,
@@ -64,7 +68,11 @@ export const updatedDateStyle = style({
 
 export const tableWrapperStyle = style({
   overflowX: 'auto',
-  marginTop: '1.6rem',
+  margin: '1.6rem 0 4rem 0',
+});
+
+export const bottomAdfitArea = style({
+  padding: '0 2.4rem',
 });
 
 export const footerStyle = style({
