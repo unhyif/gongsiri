@@ -57,7 +57,15 @@ export const featureListStyle = style({
 });
 
 export const topAdfitArea = style({
-  alignSelf: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.6rem',
+  alignItems: 'center',
+});
+
+export const adNotice = style({
+  color: vars.color.midGray,
+  fontSize: '1.1rem',
 });
 
 export const updatedDateStyle = style({

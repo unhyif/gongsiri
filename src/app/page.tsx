@@ -8,6 +8,7 @@ import {
 import FeatureItem, { Feature } from '@components/home/FeatureItem/FeatureItem';
 import { ItemResponse, ListResponse } from '@/types/database';
 import {
+  adNotice,
   bottomAdfitArea,
   contactStyle,
   descriptionStyle,
@@ -132,6 +133,7 @@ export default async function Home() {
                 data-ad-height="90"
               />
             )}
+            <p className={adNotice}>광고 적립금은 OpenAI 비용에 사용됩니다.</p>
           </div>
 
           <p className={updatedDateStyle}>최근 업데이트: {updatedDate}</p>
