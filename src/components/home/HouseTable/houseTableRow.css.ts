@@ -33,11 +33,16 @@ export const homepageLiStyle = style({
 });
 
 export const linkStyle = style({
-  color: vars.color.main,
-  fontSize: '1.5rem',
-
   ':hover': { textDecoration: 'underline' },
 });
+
+export const homepageLinkStyle = style([
+  linkStyle,
+  {
+    color: vars.color.main,
+    fontSize: '1.5rem',
+  },
+]);
 
 export const createdAtTdStyle = style([
   tdStyle,

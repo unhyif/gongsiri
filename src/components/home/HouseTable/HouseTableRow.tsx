@@ -3,6 +3,7 @@ import {
   createdAtTdStyle,
   favoriteBtnStyle,
   homepageLiStyle,
+  homepageLinkStyle,
   homepageTdStyle,
   homepageUlStyle,
   linkStyle,
@@ -47,19 +48,26 @@ const HouseTableRow = (props: Props) => {
       <td className={tdStyle}>{area}</td>
       <td className={tdStyle}>{name}</td>
       <td className={createdAtTdStyle}>{latestAnnouncement.createdAt}</td>
-      <td className={tdStyle}>{latestAnnouncement.title}</td>
-
+      <td className={tdStyle}>
+        {announcementUrl ? (
+          <a className={linkStyle} href={announcementUrl} target="_blank">
+            {latestAnnouncement.title}
+          </a>
+        ) : (
+          latestAnnouncement.title
+        )}
+      </td>
       <td className={homepageTdStyle}>
         <ul className={homepageUlStyle}>
           <li className={homepageLiStyle}>
-            <a className={linkStyle} href={shUrl} target="_blank">
+            <a className={homepageLinkStyle} href={shUrl} target="_blank">
               SH
             </a>
           </li>
 
           {url && (
             <li className={homepageLiStyle}>
-              <a className={linkStyle} href={url} target="_blank">
+              <a className={homepageLinkStyle} href={url} target="_blank">
                 주택 Home
               </a>
             </li>
@@ -67,7 +75,11 @@ const HouseTableRow = (props: Props) => {
 
           {announcementUrl && (
             <li className={homepageLiStyle}>
-              <a className={linkStyle} href={announcementUrl} target="_blank">
+              <a
+                className={homepageLinkStyle}
+                href={announcementUrl}
+                target="_blank"
+              >
                 주택 공지사항
               </a>
             </li>
