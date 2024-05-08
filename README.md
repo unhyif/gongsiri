@@ -1,4 +1,4 @@
-# Gongsiri (WIP 🚧)
+# Gongsiri
 
 > SH 청년안심주택 공실 안내 서비스
 
@@ -8,7 +8,7 @@
 
 ### Tech Stack
 
-- TypeScript, JavaScript, Next.js, vanilla-extract
+- TypeScript, Next.js, vanilla-extract
 - Serverless, AWS Lambda, DynamoDB [(repo)](https://github.com/unhyif/gongsiri-lambda)
 - Puppeteer, Langchain.js (ChatOpenAI)
 - Vercel

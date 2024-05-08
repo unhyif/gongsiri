@@ -7,10 +7,10 @@ import { themeClass } from '@styles/theme.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://gongsiri.vercel.app/'),
-  title: 'Gongsiri',
+  title: '공실이 | Gongsiri',
   description: 'SH 청년안심주택 공실 안내 서비스',
   openGraph: {
-    title: 'Gongsiri',
+    title: '공실이 | Gongsiri',
     description: 'SH 청년안심주택 최신 공실 확인하기',
     url: 'https://gongsiri.vercel.app/',
   },
