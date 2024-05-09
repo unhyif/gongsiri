@@ -51,7 +51,7 @@ export const homepageLinkStyle = style([
 export const createdAtTdStyle = style([
   tdStyle,
   {
-    width: '12.3rem',
+    minWidth: '12.3rem',
     fontWeight: 600,
     whiteSpace: 'pre-line',
   },
