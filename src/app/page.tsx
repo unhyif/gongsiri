@@ -27,7 +27,7 @@ import {
 import Clock from '@assets/svgs/clock.svg';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { House } from '@/types/house';
-import HouseTable from '@components/home/HouseTable/HouseTable';
+import HouseTableArea from '@components/home/HouseTableArea/HouseTableArea';
 import Loading from '@assets/svgs/loading.svg';
 import Sparkle from '@assets/svgs/sparkle.svg';
 import { formatInTimeZone } from 'date-fns-tz';
@@ -140,7 +140,11 @@ export default async function Home() {
         </div>
 
         <div className={tableWrapperStyle}>
-          <HouseTable houseList={sortHousesByAreaAndName(houseList)} />
+          <HouseTableArea
+            houseList={sortHousesByAreaAndName(houseList)}
+            // TODO
+            isMobile={isMobile}
+          />
         </div>
 
         <div className={bottomAdfitArea}>
