@@ -1,5 +1,4 @@
 import {
-  backgroundColor,
   createdAtTdStyle,
   favoriteBtnStyle,
   homepageLiStyle,
@@ -14,7 +13,6 @@ import {
 import { HouseCell } from '@/types/house';
 import StarFilled from '@assets/svgs/star_filled.svg';
 import StarUnfilled from '@assets/svgs/star_unfilled.svg';
-import { assignInlineVars } from '@vanilla-extract/dynamic';
 
 interface Props {
   house: HouseCell;
@@ -39,12 +37,7 @@ const HouseTableRow = (props: Props) => {
     onClickFavorite({ houseId: id, to: !isFavorite });
 
   return (
-    <tr
-      className={trStyle}
-      style={assignInlineVars({
-        [backgroundColor]: isFavorite ? '#F1FDEB' : null,
-      })}
-    >
+    <tr className={trStyle({ isActive: isFavorite })}>
       <td className={tdStyle}>{area}</td>
       <td className={tdStyle}>{name}</td>
       <td className={createdAtTdStyle}>{latestAnnouncement.createdAt}</td>

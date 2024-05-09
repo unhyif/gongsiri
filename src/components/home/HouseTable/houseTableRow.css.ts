@@ -1,12 +1,16 @@
-import { createVar, style } from '@vanilla-extract/css';
-
+import { recipe } from '@vanilla-extract/recipes';
+import { style } from '@vanilla-extract/css';
 import { vars } from '@styles/theme.css';
 
-export const backgroundColor = createVar();
-
-export const trStyle = style({
-  background: backgroundColor,
-  borderBottom: '1px solid rgb(229, 231, 235)',
+export const trStyle = recipe({
+  base: { borderBottom: '1px solid rgb(229, 231, 235)' },
+  variants: {
+    isActive: {
+      true: {
+        background: '#F1FDEB',
+      },
+    },
+  },
 });
 
 export const tdStyle = style({
