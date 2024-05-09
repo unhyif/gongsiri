@@ -69,7 +69,7 @@ export default async function Home() {
 
   const { Items: houseList } = (await docClient.send(
     houseListScanCommand
-  )) as unknown as ListResponse<ScanCommandOutput, House[]>;
+  )) as unknown as ListResponse<ScanCommandOutput, House>;
 
   const houseListUpdatedAtGetCommand = new GetCommand({
     TableName: process.env.EXTRA_DATA_TABLE,

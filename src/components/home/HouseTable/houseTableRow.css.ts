@@ -49,7 +49,7 @@ export const createdAtTdStyle = style([
   {
     width: '12.3rem',
     fontWeight: 600,
-    whiteSpace: 'pre-wrap',
+    whiteSpace: 'pre-line',
   },
 ]);
 
