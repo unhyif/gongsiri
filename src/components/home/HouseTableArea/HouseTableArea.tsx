@@ -7,17 +7,16 @@ import { useHouseTableGuide } from './useHouseTableGuide';
 
 interface Props {
   houseList: House[];
-  isMobile: boolean;
 }
 
 const HouseTableArea = (props: Props) => {
-  const { houseList, isMobile } = props;
+  const { houseList } = props;
 
   const { isShown, isFading, show, hide } = useHouseTableGuide();
 
   return (
     <>
-      <HouseTable houseList={houseList} onView={show} isMobile={isMobile} />
+      <HouseTable houseList={houseList} onView={show} />
       <HouseTableGuide isShown={isShown} isFading={isFading} onFadeOut={hide} />
     </>
   );

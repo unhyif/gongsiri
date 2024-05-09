@@ -17,7 +17,7 @@ export const useHouseTableGuide = () => {
     if (isShown) {
       setTimeout(() => {
         setIsFading(true);
-      }, 2500);
+      }, 2000);
     }
   }, [isShown]);
 

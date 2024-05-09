@@ -1,8 +1,10 @@
 import '@styles/globals.css';
 
-import GTMProvider from '@components/layout/GTMProvider';
+import DeviceProvider from '@components/layout/DeviceProvider';
+import GoogleTagManager from '@components/layout/GoogleTagManager';
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { checkMobile } from '@utils/userAgent';
 import localFont from 'next/font/local';
 import { themeClass } from '@styles/theme.css';
 
@@ -37,14 +39,14 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`${pretendard.className} ${themeClass}`}>
-        <GTMProvider>
-          {children}
-          <Script
-            async
-            type="text/javascript"
-            src="https://t1.daumcdn.net/kas/static/ba.min.js"
-          />
-        </GTMProvider>
+        <GoogleTagManager>
+          <DeviceProvider isMobile={checkMobile()}>{children}</DeviceProvider>
+        </GoogleTagManager>
+        <Script
+          async
+          type="text/javascript"
+          src="https://t1.daumcdn.net/kas/static/ba.min.js"
+        />
       </body>
     </html>
   );

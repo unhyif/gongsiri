@@ -30,11 +30,10 @@ import { House } from '@/types/house';
 import HouseTableArea from '@components/home/HouseTableArea/HouseTableArea';
 import Loading from '@assets/svgs/loading.svg';
 import Sparkle from '@assets/svgs/sparkle.svg';
+import { checkMobile } from '@utils/userAgent';
 import { formatInTimeZone } from 'date-fns-tz';
-import { headers } from 'next/headers';
 import { ko } from 'date-fns/locale/ko';
 import { sortHousesByAreaAndName } from '@utils/house';
-import { userAgent } from 'next/server';
 
 export const dynamic = 'force-dynamic';
 
@@ -61,7 +60,7 @@ const FEATURES: Feature[] = [
 ];
 
 export default async function Home() {
-  const isMobile = userAgent({ headers: headers() }).device.type === 'mobile';
+  const isMobile = checkMobile();
 
   const houseListScanCommand = new ScanCommand({
     TableName: process.env.HOUSE_TABLE,
@@ -140,11 +139,7 @@ export default async function Home() {
         </div>
 
         <div className={tableWrapperStyle}>
-          <HouseTableArea
-            houseList={sortHousesByAreaAndName(houseList)}
-            // TODO
-            isMobile={isMobile}
-          />
+          <HouseTableArea houseList={sortHousesByAreaAndName(houseList)} />
         </div>
 
         <div className={bottomAdfitArea}>

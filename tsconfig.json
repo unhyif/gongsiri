@@ -23,6 +23,7 @@
       "@assets/*": ["./assets/*"],
       "@components/*": ["./components/*"],
       "@constants/*": ["./constants/*"],
+      "@context/*": ["./context/*"],
       "@data/*": ["./data/*"],
       "@llm/*": ["./llm/*"],
       "@scripts/*": ["./scripts/*"],

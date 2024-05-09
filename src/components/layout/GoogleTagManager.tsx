@@ -1,13 +1,11 @@
 import { GoogleTagManager } from '@next/third-parties/google';
 import { PropsWithChildren } from 'react';
 
-const GTMProvider = (props: PropsWithChildren) => {
+const GoogleTagManger = (props: PropsWithChildren) => {
   return (
     <>
       <GoogleTagManager gtmId={process.env.GOOGLE_TAG_MANAGER_ID ?? ''} />
-
       {props.children}
-
       <noscript>
         <iframe
           src={`https://www.googletagmanager.com/ns.html?id=${process.env.GOOGLE_TAG_MANAGER_ID}`}
@@ -20,4 +18,4 @@ const GTMProvider = (props: PropsWithChildren) => {
   );
 };
 
-export default GTMProvider;
+export default GoogleTagManger;
