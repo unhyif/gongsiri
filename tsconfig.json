@@ -22,6 +22,7 @@
       "@app/*": ["./app/*"],
       "@assets/*": ["./assets/*"],
       "@components/*": ["./components/*"],
+      "@constants/*": ["./constants/*"],
       "@data/*": ["./data/*"],
       "@llm/*": ["./llm/*"],
       "@scripts/*": ["./scripts/*"],

@@ -1,9 +1,8 @@
 import { House, HouseCell } from '@/types/house';
 import { useEffect, useState } from 'react';
 
+import { LOCAL_STORAGE_KEYS } from '@constants/localStorageKeys';
 import { sortHousesByIsFavorite } from '@utils/house';
-
-const FAVORITE_HOUSE_IDS_KEY = 'favoriteHouseIds';
 
 export const useHouses = (params: { houseList: House[] }) => {
   const { houseList } = params;
@@ -14,7 +13,7 @@ export const useHouses = (params: { houseList: House[] }) => {
 
   const getFavoriteHouseIds = () =>
     JSON.parse(
-      localStorage.getItem(FAVORITE_HOUSE_IDS_KEY) ?? '[]'
+      localStorage.getItem(LOCAL_STORAGE_KEYS.favoriteHouseIds) ?? '[]'
     ) as number[];
 
   const postHouseFavorite = (params: { houseId: number; to: boolean }) => {
@@ -23,7 +22,7 @@ export const useHouses = (params: { houseList: House[] }) => {
     const favoriteHouseIds = getFavoriteHouseIds();
 
     localStorage.setItem(
-      FAVORITE_HOUSE_IDS_KEY,
+      LOCAL_STORAGE_KEYS.favoriteHouseIds,
       JSON.stringify(
         to
           ? [...favoriteHouseIds, houseId]
