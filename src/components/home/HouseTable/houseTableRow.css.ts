@@ -47,8 +47,9 @@ export const homepageLinkStyle = style([
 export const createdAtTdStyle = style([
   tdStyle,
   {
-    whiteSpace: 'nowrap',
+    width: '12.3rem',
     fontWeight: 600,
+    whiteSpace: 'pre-wrap',
   },
 ]);
 
