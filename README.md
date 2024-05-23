@@ -10,5 +10,5 @@
 
 - TypeScript, Next.js, vanilla-extract
 - Serverless, AWS Lambda, DynamoDB [(repo)](https://github.com/unhyif/gongsiri-lambda)
-- Puppeteer, Langchain.js (ChatOpenAI)
+- Puppeteer, Langchain.js (ChatGPT)
 - Vercel

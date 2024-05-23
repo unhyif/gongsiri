@@ -1,4 +1,4 @@
-import { House, HouseCell } from '../types/house';
+import { House, HouseCell } from '@/types/house';
 
 export const sortHousesByAreaAndName = (houses: House[]) =>
   houses.sort((a, b) => {

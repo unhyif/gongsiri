@@ -35,6 +35,7 @@ import { formatInTimeZone } from 'date-fns-tz';
 import { ko } from 'date-fns/locale/ko';
 import { sortHousesByAreaAndName } from '@utils/house';
 
+// TODO: static 컴포넌트 분리
 export const dynamic = 'force-dynamic';
 
 const client = new DynamoDBClient({});
