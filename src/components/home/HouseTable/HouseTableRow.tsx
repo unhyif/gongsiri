@@ -1,3 +1,4 @@
+import { Announcement, HouseCell } from '@/types/house';
 import {
   createdAtTdStyle,
   favoriteBtnStyle,
@@ -10,9 +11,32 @@ import {
   trStyle,
 } from './houseTableRow.css';
 
-import { HouseCell } from '@/types/house';
 import StarFilled from '@assets/svgs/star_filled.svg';
 import StarUnfilled from '@assets/svgs/star_unfilled.svg';
+import { formatInTimeZone } from 'date-fns-tz';
+import { ko } from 'date-fns/locale/ko';
+
+const formatCreatedAt = (createdAt: Announcement['createdAt']) => {
+  let result = createdAt && createdAt.replaceAll('-', '.');
+
+  const hasFewDots = ((createdAt ?? '').match(/\./g) ?? []).length < 2;
+  const skipFormatting = !createdAt || hasFewDots;
+
+  if (!skipFormatting) {
+    try {
+      result = formatInTimeZone(
+        new Date(createdAt),
+        'Asia/Seoul',
+        'yyyy.MM.dd',
+        {
+          locale: ko,
+        }
+      );
+    } catch {}
+  }
+
+  return result;
+};
 
 interface Props {
   house: HouseCell;
@@ -40,7 +64,9 @@ const HouseTableRow = (props: Props) => {
     <tr className={trStyle({ isActive: isFavorite })}>
       <td className={tdStyle}>{area}</td>
       <td className={tdStyle}>{name}</td>
-      <td className={createdAtTdStyle}>{latestAnnouncement.createdAt}</td>
+      <td className={createdAtTdStyle}>
+        {formatCreatedAt(latestAnnouncement.createdAt)}
+      </td>
       <td className={tdStyle}>
         {announcementUrl ? (
           <a className={linkStyle} href={announcementUrl} target="_blank">
