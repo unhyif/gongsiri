@@ -15,17 +15,24 @@ import StarFilled from '@assets/svgs/star_filled.svg';
 import StarUnfilled from '@assets/svgs/star_unfilled.svg';
 import { formatInTimeZone } from 'date-fns-tz';
 import { ko } from 'date-fns/locale/ko';
+import { parseISO } from 'date-fns/parseISO';
 
 const formatCreatedAt = (createdAt: Announcement['createdAt']) => {
-  let result = createdAt && createdAt.replaceAll('-', '.');
+  if (!createdAt) return createdAt;
 
-  const hasFewDots = ((createdAt ?? '').match(/\./g) ?? []).length < 2;
-  const skipFormatting = !createdAt || hasFewDots;
+  let formattedCreatedAt = createdAt.replaceAll('-', '.');
+
+  const skipFormatting = (formattedCreatedAt.match(/\./g) ?? []).length < 2;
 
   if (!skipFormatting) {
     try {
-      result = formatInTimeZone(
-        new Date(createdAt),
+      const isoString = formattedCreatedAt
+        .split('.')
+        .map(num => num.padStart(2, '0'))
+        .join('-');
+
+      formattedCreatedAt = formatInTimeZone(
+        parseISO(isoString),
         'Asia/Seoul',
         'yyyy.MM.dd',
         {
@@ -35,7 +42,7 @@ const formatCreatedAt = (createdAt: Announcement['createdAt']) => {
     } catch {}
   }
 
-  return result;
+  return formattedCreatedAt;
 };
 
 interface Props {
