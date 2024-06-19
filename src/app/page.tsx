@@ -20,6 +20,7 @@ import {
   tableWrapperStyle,
   titleStyle,
   titleWrapperStyle,
+  topAdfit,
   topAdfitArea,
   updatedDateStyle,
 } from './page.css';
@@ -35,7 +36,6 @@ import { formatInTimeZone } from 'date-fns-tz';
 import { ko } from 'date-fns/locale/ko';
 import { sortHousesByAreaAndName } from '@utils/house';
 
-// TODO: static 컴포넌트 분리
 export const dynamic = 'force-dynamic';
 
 const client = new DynamoDBClient({});
@@ -116,23 +116,25 @@ export default async function Home() {
           </ul>
 
           <div className={topAdfitArea}>
-            {isMobile ? (
-              <ins
-                className="kakao_ad_area"
-                style={{ display: 'none' }}
-                data-ad-unit={process.env.ADFIT_MOBILE_UNIT}
-                data-ad-width="320"
-                data-ad-height="100"
-              />
-            ) : (
-              <ins
-                className="kakao_ad_area"
-                style={{ display: 'none' }}
-                data-ad-unit={process.env.ADFIT_PC_UNIT}
-                data-ad-width="728"
-                data-ad-height="90"
-              />
-            )}
+            <div className={topAdfit({ isMobile })}>
+              {isMobile ? (
+                <ins
+                  className="kakao_ad_area"
+                  style={{ display: 'none' }}
+                  data-ad-unit={process.env.ADFIT_MOBILE_UNIT}
+                  data-ad-width="320"
+                  data-ad-height="100"
+                />
+              ) : (
+                <ins
+                  className="kakao_ad_area"
+                  style={{ display: 'none' }}
+                  data-ad-unit={process.env.ADFIT_PC_UNIT}
+                  data-ad-width="728"
+                  data-ad-height="90"
+                />
+              )}
+            </div>
             <p className={adNotice}>광고 적립금은 OpenAI 비용에 사용됩니다.</p>
           </div>
 

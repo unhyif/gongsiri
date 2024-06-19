@@ -1,3 +1,4 @@
+import { recipe } from '@vanilla-extract/recipes';
 import { style } from '@vanilla-extract/css';
 import { vars } from '@styles/theme.css';
 
@@ -63,6 +64,19 @@ export const topAdfitArea = style({
   alignItems: 'center',
 });
 
+export const topAdfit = recipe({
+  base: {
+    height: '9rem',
+  },
+  variants: {
+    isMobile: {
+      true: {
+        height: '10rem',
+      },
+    },
+  },
+});
+
 export const adNotice = style({
   color: vars.color.midGray,
   fontSize: '1.1rem',
@@ -81,6 +95,7 @@ export const tableWrapperStyle = style({
 
 export const bottomAdfitArea = style({
   padding: '0 2.4rem',
+  height: '25rem',
 });
 
 export const footerStyle = style({
