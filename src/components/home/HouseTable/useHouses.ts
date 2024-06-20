@@ -7,7 +7,7 @@ import { sortHousesByIsFavorite } from '@utils/house';
 export const useHouses = (params: { houseList: House[] }) => {
   const { houseList } = params;
 
-  const [houses, setHouses] = useState<HouseCell[]>(
+  const [houses, setHouses] = useState<HouseCell[]>(() =>
     houseList.map(house => ({ ...house, isFavorite: false }))
   );
 
