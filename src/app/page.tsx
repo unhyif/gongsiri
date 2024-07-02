@@ -1,12 +1,4 @@
-import {
-  DynamoDBDocumentClient,
-  GetCommand,
-  GetCommandOutput,
-  ScanCommand,
-  ScanCommandOutput,
-} from '@aws-sdk/lib-dynamodb';
 import FeatureItem, { Feature } from '@components/home/FeatureItem/FeatureItem';
-import { ItemResponse, ListResponse } from '@/types/database';
 import {
   adNotice,
   bottomAdfitArea,
@@ -26,8 +18,7 @@ import {
 } from './page.css';
 
 import Clock from '@assets/svgs/clock.svg';
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { House } from '@/types/house';
+import { DBService } from '@utils/database';
 import HouseTableArea from '@components/home/HouseTableArea/HouseTableArea';
 import Loading from '@assets/svgs/loading.svg';
 import Sparkle from '@assets/svgs/sparkle.svg';
@@ -37,9 +28,6 @@ import { ko } from 'date-fns/locale/ko';
 import { sortHousesByAreaAndName } from '@utils/house';
 
 export const dynamic = 'force-dynamic';
-
-const client = new DynamoDBClient({});
-const docClient = DynamoDBDocumentClient.from(client);
 
 const FEATURES: Feature[] = [
   {
@@ -61,29 +49,10 @@ const FEATURES: Feature[] = [
 ];
 
 export default async function Home() {
-  const isMobile = checkMobile();
+  const dbService = new DBService();
 
-  const houseListScanCommand = new ScanCommand({
-    TableName: process.env.HOUSE_TABLE,
-  });
-
-  const { Items: houseList } = (await docClient.send(
-    houseListScanCommand
-  )) as unknown as ListResponse<ScanCommandOutput, House>;
-
-  const houseListUpdatedAtGetCommand = new GetCommand({
-    TableName: process.env.EXTRA_DATA_TABLE,
-    Key: {
-      name: 'updatedAt',
-    },
-    AttributesToGet: ['value'],
-  });
-
-  const {
-    Item: { value: updatedAt },
-  } = (await docClient.send(
-    houseListUpdatedAtGetCommand
-  )) as unknown as ItemResponse<GetCommandOutput, { value: number }>;
+  const houseList = await dbService.getHouseList();
+  const updatedAt = await dbService.getHouseListUpdatedAt();
 
   const updatedDate = formatInTimeZone(
     updatedAt,
@@ -91,6 +60,8 @@ export default async function Home() {
     'yyyy년 M월 d일 (E) HH:mm',
     { locale: ko }
   );
+
+  const isMobile = checkMobile();
 
   return (
     <>
