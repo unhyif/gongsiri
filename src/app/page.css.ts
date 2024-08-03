@@ -21,7 +21,10 @@ export const introStyle = style({
   padding: '0 2.4rem',
 });
 
-export const contactStyle = style({
+export const serviceStyle = style({
+  display: 'flex',
+  gap: '2rem',
+  alignItems: 'center',
   color: vars.color.main,
   fontSize: '1.5rem',
   fontWeight: 500,

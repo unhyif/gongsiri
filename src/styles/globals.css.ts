@@ -25,4 +25,6 @@ globalStyle('button', {
   background: 'none',
   border: 'none',
   cursor: 'pointer',
+  font: 'inherit',
+  color: 'inherit',
 });

@@ -2,13 +2,13 @@ import FeatureItem, { Feature } from '@components/home/FeatureItem/FeatureItem';
 import {
   adNotice,
   bottomAdfitArea,
-  contactStyle,
   descriptionStyle,
   featureListStyle,
   footerInsideStyle,
   footerStyle,
   introStyle,
   mainStyle,
+  serviceStyle,
   tableWrapperStyle,
   titleStyle,
   titleWrapperStyle,
@@ -26,6 +26,7 @@ import { checkMobile } from '@utils/userAgent';
 import { formatInTimeZone } from 'date-fns-tz';
 import { ko } from 'date-fns/locale/ko';
 import { formatCreatedAt, sortHouses } from '@utils/house';
+import { NoticeButton } from '@components/home/NoticeButton';
 
 export const dynamic = 'force-dynamic';
 
@@ -74,13 +75,12 @@ export default async function Home() {
     <>
       <main className={mainStyle}>
         <div className={introStyle}>
-          <a
-            className={contactStyle}
-            href="https://forms.gle/SYQ6MWoKET2nMhXo8"
-            target="_blank"
-          >
-            💌 서비스 문의
-          </a>
+          <div className={serviceStyle}>
+            <NoticeButton />
+            <a href="https://forms.gle/SYQ6MWoKET2nMhXo8" target="_blank">
+              💌 서비스 문의
+            </a>
+          </div>
 
           <div className={titleWrapperStyle}>
             <h1 className={titleStyle}>Gongsiri</h1>
