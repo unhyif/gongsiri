@@ -25,7 +25,7 @@ import Sparkle from '@assets/svgs/sparkle.svg';
 import { checkMobile } from '@utils/userAgent';
 import { formatInTimeZone } from 'date-fns-tz';
 import { ko } from 'date-fns/locale/ko';
-import { sortHousesByAreaAndName } from '@utils/house';
+import { formatCreatedAt, sortHouses } from '@utils/house';
 
 export const dynamic = 'force-dynamic';
 
@@ -38,7 +38,7 @@ const FEATURES: Feature[] = [
   {
     title: 'ChatGPT를 통한 공실 안내',
     description:
-      'GPT-3.5 Turbo를 통해 최신 공지를 추려내고 있어요.\n현재 기술 수준에서는 오차가 있을 수 있어요.',
+      'GPT-4o mini를 통해 최신 공지를 추려내고 있어요.\n현재 기술 수준에서는 오차가 있을 수 있어요.',
     Icon: Sparkle,
   },
   {
@@ -52,6 +52,13 @@ export default async function Home() {
   const dbService = new DBService();
 
   const houseList = await dbService.getHouseList();
+  const formattedHouseList = houseList.map(house => ({
+    ...house,
+    latestAnnouncement: {
+      ...house.latestAnnouncement,
+      createdAt: formatCreatedAt(house.latestAnnouncement.createdAt),
+    },
+  }));
   const updatedAt = await dbService.getHouseListUpdatedAt();
 
   const updatedDate = formatInTimeZone(
@@ -113,7 +120,7 @@ export default async function Home() {
         </div>
 
         <div className={tableWrapperStyle}>
-          <HouseTableArea houseList={sortHousesByAreaAndName(houseList)} />
+          <HouseTableArea houseList={sortHouses(formattedHouseList)} />
         </div>
 
         <div className={bottomAdfitArea}>
