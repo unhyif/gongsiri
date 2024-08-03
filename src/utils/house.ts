@@ -38,6 +38,17 @@ const isInValidDate = (date: Date | null) =>
 
 export const sortHouses = (houses: House[]) =>
   houses.sort((a, b) => {
+    // elyes 우선 정렬
+    const aIsElyes = a.url?.includes('elyes.co.kr');
+    const bIsElyes = b.url?.includes('elyes.co.kr');
+    if (aIsElyes && bIsElyes) {
+      return a.area.localeCompare(b.area);
+    } else if (aIsElyes && !bIsElyes) {
+      return -1;
+    } else if (!aIsElyes && bIsElyes) {
+      return 1;
+    }
+
     const dateA = a.latestAnnouncement.createdAt
       ? new Date(a.latestAnnouncement.createdAt)
       : null;
