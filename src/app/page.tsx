@@ -1,6 +1,7 @@
 import FeatureItem, { Feature } from '@components/home/FeatureItem/FeatureItem';
 import {
   adNotice,
+  bcfStyle,
   bottomAdfitArea,
   descriptionStyle,
   featureListStyle,
@@ -79,6 +80,13 @@ export default async function Home() {
             <NoticeButton />
             <a href="https://forms.gle/SYQ6MWoKET2nMhXo8" target="_blank">
               💌 서비스 문의
+            </a>
+            <a
+              className={bcfStyle}
+              href="https://buymeacoffee.com/unhyif"
+              target="_blank"
+            >
+              🍪 쿠키 후원
             </a>
           </div>
 

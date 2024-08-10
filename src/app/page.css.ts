@@ -23,12 +23,20 @@ export const introStyle = style({
 
 export const serviceStyle = style({
   display: 'flex',
-  gap: '2rem',
+  gap: '1.6rem',
   alignItems: 'center',
   color: vars.color.main,
   fontSize: '1.5rem',
   fontWeight: 500,
   alignSelf: 'flex-end',
+});
+
+export const bcfStyle = style({
+  background: '#ffee72',
+  color: vars.color.black,
+  fontSize: '1.4rem',
+  padding: '0.8rem 1.2rem',
+  borderRadius: '2rem',
 });
 
 export const titleWrapperStyle = style({
@@ -55,7 +63,6 @@ export const featureListStyle = style({
   '@media': {
     'screen and (max-width: 768px)': {
       flexDirection: 'column',
-      alignItems: 'center',
     },
   },
 });
