@@ -32,7 +32,7 @@ export const serviceStyle = style({
 });
 
 export const bcfStyle = style({
-  background: '#ffee72',
+  background: '#f4e1be',
   color: vars.color.black,
   padding: '0.8rem 1.2rem',
   borderRadius: '2rem',

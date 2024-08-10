@@ -82,7 +82,7 @@ export default async function Home() {
               href="https://buymeacoffee.com/unhyif?l=en"
               target="_blank"
             >
-              🍪 쿠키 후원
+              ☕️ 커피 후원
             </a>
             <NoticeButton />
             <a href="https://forms.gle/SYQ6MWoKET2nMhXo8" target="_blank">
