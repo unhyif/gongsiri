@@ -23,6 +23,9 @@ export const metadata: Metadata = {
       'naver-site-verification': process.env.NAVER_SEARCH_ADVISOR_ID ?? '',
     },
   },
+  alternates: {
+    canonical: 'https://gongsiri.site/',
+  },
 };
 
 const pretendard = localFont({
