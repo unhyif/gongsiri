@@ -5,7 +5,7 @@
 <div align="center">
 
 ![opengraph-image](https://github.com/unhyif/gongsiri/assets/93528293/b68f37ff-dd71-4eb9-b83a-12cee622153d)
-[https://gongsiri.vercel.app/](https://gongsiri.vercel.app/)
+[https://gongsiri.site/](https://gongsiri.site/)
 
 </div>
 
