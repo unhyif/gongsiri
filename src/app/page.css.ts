@@ -26,7 +26,7 @@ export const serviceStyle = style({
   gap: '1.6rem',
   alignItems: 'center',
   color: vars.color.main,
-  fontSize: '1.5rem',
+  fontSize: '1.4rem',
   fontWeight: 500,
   alignSelf: 'flex-end',
 });
@@ -34,7 +34,6 @@ export const serviceStyle = style({
 export const bcfStyle = style({
   background: '#ffee72',
   color: vars.color.black,
-  fontSize: '1.4rem',
   padding: '0.8rem 1.2rem',
   borderRadius: '2rem',
 });

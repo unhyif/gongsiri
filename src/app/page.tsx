@@ -77,16 +77,16 @@ export default async function Home() {
       <main className={mainStyle}>
         <div className={introStyle}>
           <div className={serviceStyle}>
-            <NoticeButton />
-            <a href="https://forms.gle/SYQ6MWoKET2nMhXo8" target="_blank">
-              💌 서비스 문의
-            </a>
             <a
               className={bcfStyle}
-              href="https://buymeacoffee.com/unhyif"
+              href="https://buymeacoffee.com/unhyif?l=en"
               target="_blank"
             >
               🍪 쿠키 후원
+            </a>
+            <NoticeButton />
+            <a href="https://forms.gle/SYQ6MWoKET2nMhXo8" target="_blank">
+              💌 서비스 문의
             </a>
           </div>
 
