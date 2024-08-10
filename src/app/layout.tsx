@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     google: process.env.GOOGLE_SEARCH_CONSOLE_ID,
     other: {
       'naver-site-verification': process.env.NAVER_SEARCH_ADVISOR_ID ?? '',
+      'google-adsense-account': process.env.GOOGLE_ADSENSE_ACCOUNT ?? '',
     },
   },
   alternates: {
