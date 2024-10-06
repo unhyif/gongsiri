@@ -27,7 +27,6 @@ import { checkMobile } from '@utils/userAgent';
 import { formatInTimeZone } from 'date-fns-tz';
 import { ko } from 'date-fns/locale/ko';
 import { formatCreatedAt, sortHouses } from '@utils/house';
-import { NoticeButton } from '@components/home/NoticeButton';
 
 export const dynamic = 'force-dynamic';
 
@@ -84,7 +83,7 @@ export default async function Home() {
             >
               ☕️ 커피 후원
             </a>
-            <NoticeButton />
+            {/* <NoticeButton /> */}
             <a href="https://forms.gle/SYQ6MWoKET2nMhXo8" target="_blank">
               💌 서비스 문의
             </a>
