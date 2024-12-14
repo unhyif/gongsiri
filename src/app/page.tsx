@@ -17,16 +17,17 @@ import {
   topAdfitArea,
   updatedDateStyle,
 } from './page.css';
+import { formatCreatedAt, sortHouses } from '@utils/house';
 
 import Clock from '@assets/svgs/clock.svg';
 import { DBService } from '@utils/database';
 import HouseTableArea from '@components/home/HouseTableArea/HouseTableArea';
 import Loading from '@assets/svgs/loading.svg';
+import { NoticeButton } from '@components/home/NoticeButton';
 import Sparkle from '@assets/svgs/sparkle.svg';
 import { checkMobile } from '@utils/userAgent';
 import { formatInTimeZone } from 'date-fns-tz';
 import { ko } from 'date-fns/locale/ko';
-import { formatCreatedAt, sortHouses } from '@utils/house';
 
 export const dynamic = 'force-dynamic';
 
@@ -83,7 +84,7 @@ export default async function Home() {
             >
               ☕️ 커피 후원
             </a>
-            {/* <NoticeButton /> */}
+            <NoticeButton />
             <a href="https://forms.gle/SYQ6MWoKET2nMhXo8" target="_blank">
               💌 서비스 문의
             </a>
